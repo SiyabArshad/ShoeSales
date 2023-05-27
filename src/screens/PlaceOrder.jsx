@@ -52,11 +52,11 @@ export default function PlaceOrder({navigation,route}) {
   <View style={{marginHorizontal:rp(2)}}>
     <BodyText text={"Sapatu Blue Shoes"} style={{textDecorationLine:"underline"}}/>
 <View style={{marginTop:rp(4)}}>
-<TextInput onChangeText={(e)=>setname(e)} value={name} style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.primary,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Name'/>
-<TextInput onChangeText={(e)=>setphone(e)} value={phone} maxLength={15} keyboardType='phone-pad' style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.primary,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Phone'/>
-<TextInput onChangeText={(e)=>setaddress(e)} value={address} multiline style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.primary,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Address'/>
+<TextInput onChangeText={(e)=>setname(e)} value={name} style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.black,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Name'/>
+<TextInput onChangeText={(e)=>setphone(e)} value={phone} maxLength={15} keyboardType='phone-pad' style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.black,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Phone'/>
+<TextInput onChangeText={(e)=>setaddress(e)} value={address} multiline style={{paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.black,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Address'/>
 <View style={{minHeight:200}}>
-<TextInput onChangeText={(e)=>setnotes(e)} value={notes} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.primary,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Notes'/>
+<TextInput onChangeText={(e)=>setnotes(e)} value={notes} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.black,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Notes'/>
 </View>
 </View>
 <View style={{...styles.center,marginTop:rp(2)}}>

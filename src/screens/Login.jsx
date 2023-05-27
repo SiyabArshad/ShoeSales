@@ -5,15 +5,18 @@ import colors from '../helpers/colors'
 import { RFPercentage as rp, RFValue as rf } from "react-native-responsive-fontsize";
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import MessageCard from '../components/MessageCard';
-
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Email is required').min(10),
+  password: Yup.string().required('Password is required').min(6),
+});
 export default function Login({navigation}) {
-    const[email,setemail]=React.useState("")
-    const[password,setpassword]=React.useState("")
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
     const [type,settype]=React.useState(false)
-    const handleform = async () => {
+    const handleSubmit = async () => {
         setisload(true);
         try {
           setError("Loggedin Successfully");
@@ -46,22 +49,35 @@ export default function Login({navigation}) {
        {" "}Login Your {"\n"} Account :)
      </Text>
      </View>
+     <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+       {({ handleChange, handleSubmit, values, errors }) => (
      <View style={{marginTop:rp(8),marginHorizontal:rp(2)}}>
      <View style={{marginBottom:rp(7)}}>
         <Text style={styles.lable}>Email</Text>
         <TextInput 
-        value={email} onChangeText={(e)=>setemail(e)}
+         onChangeText={handleChange('email')}
+         value={values.email}
+         placeholder="Email"
         style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
+      {errors.email && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.email}</Text>}
      </View>
      <View style={{marginBottom:rp(7)}}>
         <Text style={styles.lable}>Password</Text>
-        <TextInput secureTextEntry value={password} onChangeText={(e)=>setpassword(e)} style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
-     </View>
+        <TextInput secureTextEntry 
+       onChangeText={handleChange('password')}
+       value={values.password}
+       placeholder="Password"
+        style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
+     {errors.password && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.password}</Text>}
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
                 <Pressable 
                 disabled={issubmit} 
-                onPress={handleform} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
+                onPress={handleSubmit} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
                    {
                         isload?
                         <ActivityIndicator size={30} color={colors.white}/>
@@ -69,12 +85,19 @@ export default function Login({navigation}) {
                         <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Sign in</Text>
                     }
                 </Pressable>
-                <Pressable onPress={()=>navigation.navigate("forgot")} style={{marginTop:rp(3)}}>
+                <Pressable 
+                onPress={()=>navigation.navigate("forgot")}
+                 style={{marginTop:rp(3)}}>
                     <Text style={{fontFamily:fonts.mregular,fontSize:rp(2.5),color:colors.textgrey}}>
                     Forgot Password?
                     </Text>
                 </Pressable>
      </View> 
+     </View>
+       )
+}
+     </Formik>
+ 
     </ScrollView>
   )
 }

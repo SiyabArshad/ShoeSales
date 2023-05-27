@@ -5,18 +5,22 @@ import colors from '../helpers/colors'
 import { RFPercentage as rp, RFValue as rf } from "react-native-responsive-fontsize";
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import MessageCard from '../components/MessageCard';
-
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Email is required').min(10),
+});
 export default function Forgot({navigation}) {
-    const[email,setemail]=React.useState("")
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
     const [type,settype]=React.useState(false)
-    const handleform = async () => {
+    const handleSubmit = async () => {
         setisload(true);
         try {
-          setError("Loggedin Successfully");
+          setError("Send");
           settype(true);
+          navigation.navigate("home")
         } catch (error) {
           setError("Failed");
           settype(false);
@@ -41,21 +45,29 @@ export default function Forgot({navigation}) {
      </View>
      <View style={{marginVertical:rp(5),marginHorizontal:rp(2)}}>
      <Text style={styles.text1}>
-       {" "}Forgot{"\n"} Password :)
+       {" "}Forgot {"\n"} Password :)
      </Text>
      </View>
+     <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+       {({ handleChange, handleSubmit, values, errors }) => (
      <View style={{marginTop:rp(8),marginHorizontal:rp(2)}}>
      <View style={{marginBottom:rp(7)}}>
         <Text style={styles.lable}>Email</Text>
         <TextInput 
-        value={email} onChangeText={(e)=>setemail(e)}
+         onChangeText={handleChange('email')}
+         value={values.email}
+         placeholder="Email"
         style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
-     </View>
+      {errors.email && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.email}</Text>}
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
                 <Pressable 
                 disabled={issubmit} 
-                onPress={handleform} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
+                onPress={handleSubmit} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
                    {
                         isload?
                         <ActivityIndicator size={30} color={colors.white}/>
@@ -64,6 +76,11 @@ export default function Forgot({navigation}) {
                     }
                 </Pressable>
      </View> 
+     </View>
+       )
+}
+     </Formik>
+ 
     </ScrollView>
   )
 }
