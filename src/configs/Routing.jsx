@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from '../screens/Signup';
 import Login from '../screens/Login';
 import Forgot from '../screens/Forgot';
-import Home from '../screens/Home';
+import ShoeDetail from '../screens/ShoeDetail';
 import TabNavigation from './TabNavigation';
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +15,7 @@ export default function Routing() {
         <Stack.Screen name={"login"} component={Login}/>
         <Stack.Screen name={"forgot"} component={Forgot}/>
         <Stack.Screen name={"home"} component={TabNavigation}/>
+        <Stack.Screen name={"details"} component={ShoeDetail}/>
         </Stack.Navigator>
   )
 }

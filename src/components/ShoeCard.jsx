@@ -7,9 +7,9 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Heading from "./Typography/Heading"
 import BodyText from "./Typography/BodyText"
 import { Image } from 'react-native-elements';
-export default function ShoeCard() {
+export default function ShoeCard({func=()=>{}}) {
   return (
-    <Pressable style={{overflow:"hidden",height:220,width:"45%",marginHorizontal:"2.5%",marginBottom:rp(2),backgroundColor:colors.lightgrey,borderRadius:rp(4),display:"flex",alignItems:"center",justifyContent:"center"}}>
+    <Pressable onPress={func} style={{overflow:"hidden",height:220,width:"45%",marginHorizontal:"2.5%",marginBottom:rp(2),backgroundColor:colors.lightgrey,borderRadius:rp(4),display:"flex",alignItems:"center",justifyContent:"center"}}>
     <Image PlaceholderContent={<ActivityIndicator/>} resizeMode='contain' style={{height:100,width:140}} source={require("../../assets/images/shoe1.png")}/>
     <View style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
     <Heading text={"Shoe Arm"} h='h5' style={{marginBottom:rp(.5)}}/>

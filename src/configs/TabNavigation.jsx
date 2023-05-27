@@ -53,7 +53,7 @@ export default function TabNavigation() {
         tabBarIcon:({color,size})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
           <MaterialIcons name="favorite" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Favourites</Text>
+          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Favorites</Text>
         </View>
         )
         }}

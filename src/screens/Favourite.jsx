@@ -8,7 +8,7 @@ import Octicons from "react-native-vector-icons/Octicons"
 import { Avatar,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
 
-export default function Favourite() {
+export default function Favourite({navigation,route}) {
     const[search,setsearch]=React.useState("")
     const[lth,setlth]=React.useState(false)
   return (
@@ -24,7 +24,7 @@ export default function Favourite() {
           <View style={{display:"flex",flexDirection:"row",flexWrap:"wrap",alignItems:"center",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
           {
             [1,2,2,3,4,5,6,7,33,7,788].map((item,i)=>(
-              <ShoeCard key={i}/>
+              <ShoeCard func={()=>navigation.navigate("details")} key={i}/>
             ))
           }
           </View>
