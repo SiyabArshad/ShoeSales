@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from '../screens/Signup';
 import Login from '../screens/Login';
 import Forgot from '../screens/Forgot';
+import Home from '../screens/Home';
 const Stack = createNativeStackNavigator();
 
 export default function Routing() {
@@ -12,6 +13,7 @@ export default function Routing() {
         <Stack.Screen name={"signup"} component={Signup}/>
         <Stack.Screen name={"login"} component={Login}/>
         <Stack.Screen name={"forgot"} component={Forgot}/>
+        <Stack.Screen name={"home"} component={Home}/>
         </Stack.Navigator>
   )
 }

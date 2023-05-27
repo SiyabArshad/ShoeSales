@@ -37,7 +37,7 @@ export default function Signup({navigation}) {
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
      <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
         
-     <Pressable onPress={()=>navigation.pop()} style={styles.btn}>
+     <Pressable style={styles.btn}>
      <IonicIcon name="arrow-back" size={24} color={colors.white} />
      </Pressable>
      </View>

@@ -18,6 +18,7 @@ export default function Login({navigation}) {
         try {
           setError("Loggedin Successfully");
           settype(true);
+          navigation.navigate("home")
         } catch (error) {
           setError("Failed");
           settype(false);
