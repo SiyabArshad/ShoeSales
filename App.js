@@ -5,6 +5,6 @@ import Login from './src/screens/Login'
 import Forgot from './src/screens/Forgot'
 export default function App() {
   return (
-    <Forgot/>
+    <Login/>
     )
 }
