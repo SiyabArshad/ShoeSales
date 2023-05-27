@@ -6,10 +6,8 @@ import { RFPercentage as rp, RFValue as rf } from "react-native-responsive-fonts
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import MessageCard from '../components/MessageCard';
 
-export default function Signup({navigation}) {
+export default function Forgot({navigation}) {
     const[email,setemail]=React.useState("")
-    const[password,setpassword]=React.useState("")
-    const[name,setname]=React.useState("")
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
@@ -17,10 +15,10 @@ export default function Signup({navigation}) {
     const handleform = async () => {
         setisload(true);
         try {
-          setError("Registered Successfully");
+          setError("Loggedin Successfully");
           settype(true);
         } catch (error) {
-          setError("Registration Failed");
+          setError("Failed");
           settype(false);
         }
        finally{
@@ -43,25 +41,15 @@ export default function Signup({navigation}) {
      </View>
      <View style={{marginVertical:rp(5),marginHorizontal:rp(2)}}>
      <Text style={styles.text1}>
-       {" "}Create {"\n"} Account :)
+       {" "}Forgot{"\n"} Password :)
      </Text>
      </View>
      <View style={{marginTop:rp(8),marginHorizontal:rp(2)}}>
-     <View style={{marginBottom:rp(7)}}>
-        <Text style={styles.lable}>Username</Text>
-        <TextInput 
-        value={name} onChangeText={(e)=>setname(e)}
-        style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
-     </View>
      <View style={{marginBottom:rp(7)}}>
         <Text style={styles.lable}>Email</Text>
         <TextInput 
         value={email} onChangeText={(e)=>setemail(e)}
         style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
-     </View>
-     <View style={{marginBottom:rp(7)}}>
-        <Text style={styles.lable}>Password</Text>
-        <TextInput secureTextEntry value={password} onChangeText={(e)=>setpassword(e)} style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
      </View>
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
@@ -72,13 +60,8 @@ export default function Signup({navigation}) {
                         isload?
                         <ActivityIndicator size={30} color={colors.white}/>
                         :
-                        <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Sign up</Text>
+                        <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Send</Text>
                     }
-                </Pressable>
-                <Pressable onPress={()=>navigation.navigate("login")} style={{marginTop:rp(3)}}>
-                    <Text style={{fontFamily:fonts.mregular,fontSize:rp(2.5),color:colors.textgrey}}>
-                    Already Have an Account?
-                    </Text>
                 </Pressable>
      </View> 
     </ScrollView>
