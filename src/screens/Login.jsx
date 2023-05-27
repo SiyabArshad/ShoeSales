@@ -68,9 +68,9 @@ export default function Login({navigation}) {
                         <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Sign in</Text>
                     }
                 </Pressable>
-                <Pressable onPress={()=>navigation.navigate("signup")} style={{marginTop:rp(3)}}>
+                <Pressable onPress={()=>navigation.navigate("forgot")} style={{marginTop:rp(3)}}>
                     <Text style={{fontFamily:fonts.mregular,fontSize:rp(2.5),color:colors.textgrey}}>
-                    Don't Have an Account?
+                    Forgot Password?
                     </Text>
                 </Pressable>
      </View> 

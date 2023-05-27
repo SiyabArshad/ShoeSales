@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Signup from './src/screens/Signup'
-import Login from './src/screens/Login'
-import Forgot from './src/screens/Forgot'
+import Routing from './src/configs/Routing'
+
+import { NavigationContainer } from '@react-navigation/native'
 export default function App() {
   return (
-    <Login/>
+    <NavigationContainer>
+      <Routing/>
+    </NavigationContainer>
     )
 }
