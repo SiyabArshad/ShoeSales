@@ -4,6 +4,7 @@ import { BottomTabBarProps, BottomTabNavigationOptions, createBottomTabNavigator
 import Home from "../screens/Home"
 import Favourite from '../screens/Favourite'
 import Orders from '../screens/Orders'
+import Setting from '../screens/Setting'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5  from "react-native-vector-icons/FontAwesome5"
 import { RFPercentage } from 'react-native-responsive-fontsize';
@@ -90,7 +91,7 @@ export default function TabNavigation() {
     />
     <Tab.Screen
       name={"settingscreen"}
-      component={Home}
+      component={Setting}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
