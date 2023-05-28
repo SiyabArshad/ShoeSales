@@ -27,7 +27,7 @@ export default function ShoeDetail({navigation,route}) {
      <View style={{display:"flex",flexDirection:"row"}}>
         <View style={{width:"50%",paddingHorizontal:rp(2)}}>
             <BodyText text={"Nike"} color={colors.lightblack} style={{marginLeft:rp(2)}}/>
-            <Heading h='h2' text={"Sapatu Blue Shoes"} style={{marginLeft:rp(2),marginVertical:rp(2)}}/>
+            <Heading h='h3' text={"Sapatu Blue Shoes"} style={{marginLeft:rp(2),marginVertical:rp(2)}}/>
             <View style={{marginBottom:rp(2),marginLeft:rp(2),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
             <View>
             <BodyText text={"Price"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
@@ -53,12 +53,12 @@ export default function ShoeDetail({navigation,route}) {
         <Image PlaceholderContent={<ActivityIndicator/>} resizeMode='contain' style={{height:300,width:140}} source={require("../../assets/images/shoe1.png")}/>
         </View>
      </View>
-     <View style={{backgroundColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(4),borderTopLeftRadius:rp(2),borderTopRightRadius:rp(2)}}>
+     <View style={{backgroundColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(4),borderTopLeftRadius:rp(3),borderTopRightRadius:rp(3),position:"relative",top:40}}>
         <Heading text={"Description"} color={colors.white} h='h3'/>
        <ScrollView style={{marginVertical:rp(1),height:150}} showsVerticalScrollIndicator={false}>
        <CaptionText size='m' style={{marginVertical:rp(1),textAlign:"justify"}} color={colors.white} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam diam ut aliquam mauris ut odio elit mi. Vitae arcu orci et fames. Libero, sed scelerisque et dui leo iaculis pellentesque."}/>
        </ScrollView>
-            <CustomButton func={()=>navigation.navigate("chat")} style={{backgroundColor:colors.white,borderRadius:rp(5)}} textstyle={{color:colors.primary,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Chat"}/>
+            <CustomButton func={()=>navigation.navigate("chat")} style={{marginBottom:rp(2),backgroundColor:colors.white,borderRadius:rp(5)}} textstyle={{color:colors.primary,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Chat"}/>
      </View>
      </View>
     </Screen>   

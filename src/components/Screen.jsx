@@ -13,7 +13,7 @@ function Screen({ children, statusBarColor = colors.white, style }) {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor:colors.white
+    backgroundColor:colors.white,
   },
 });
 
