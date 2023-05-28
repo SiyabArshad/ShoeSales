@@ -7,6 +7,7 @@ import Forgot from '../screens/Forgot';
 import ShoeDetail from '../screens/ShoeDetail';
 import TabNavigation from './TabNavigation';
 import PlaceOrder from '../screens/PlaceOrder';
+import Chat from '../screens/Chat';
 const Stack = createNativeStackNavigator();
 
 export default function Routing() {
@@ -18,6 +19,7 @@ export default function Routing() {
         <Stack.Screen name={"home"} component={TabNavigation}/>
         <Stack.Screen name={"details"} component={ShoeDetail}/>
         <Stack.Screen name={"placeorder"} component={PlaceOrder}/>
+        <Stack.Screen name={"chat"} component={Chat}/>
         </Stack.Navigator>
   )
 }

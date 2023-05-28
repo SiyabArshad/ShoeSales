@@ -58,7 +58,7 @@ export default function ShoeDetail({navigation,route}) {
        <ScrollView style={{marginVertical:rp(1),height:150}} showsVerticalScrollIndicator={false}>
        <CaptionText size='m' style={{marginVertical:rp(1),textAlign:"justify"}} color={colors.white} text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam diam ut aliquam mauris ut odio elit mi. Vitae arcu orci et fames. Libero, sed scelerisque et dui leo iaculis pellentesque."}/>
        </ScrollView>
-            <CustomButton func={()=>navigation.navigate("placeorder")} style={{backgroundColor:"white",borderRadius:rp(5)}} textstyle={{color:colors.primary,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Chat"}/>
+            <CustomButton func={()=>navigation.navigate("chat")} style={{backgroundColor:colors.white,borderRadius:rp(5)}} textstyle={{color:colors.primary,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Chat"}/>
      </View>
      </View>
     </Screen>   
