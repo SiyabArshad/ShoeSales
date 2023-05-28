@@ -7,7 +7,7 @@ import fonts from '../helpers/fonts'
 import { RFPercentage as rp, RFValue as rf } from "react-native-responsive-fontsize";
 import CaptionText from './Typography/BodyText'
 import Heading from './Typography/Heading'
-export default function OrderModal({show,callshow,message,type}) {
+export default function OrderModal({show=false,callshow=()=>{},message,type}) {
   return (
     <Modal transparent visible={show}>
     <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:"rgba(0,0,0,.4)"}}>
@@ -42,7 +42,7 @@ export default function OrderModal({show,callshow,message,type}) {
 </View>
 <Pressable onPress={()=>{
   callshow()
-}} style={{backgroundColor:colors.black,width:"60%",paddingHorizontal:10,paddingVertical:7,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:10}}>
+}} style={{backgroundColor:colors.primary,width:"60%",paddingHorizontal:10,paddingVertical:7,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:10}}>
     <Text style={{color:colors.white,fontSize:18}}>Ok</Text>
 </Pressable>
         </View>

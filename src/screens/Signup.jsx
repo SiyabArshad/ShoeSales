@@ -7,6 +7,7 @@ import IonicIcon from 'react-native-vector-icons/Ionicons';
 import MessageCard from '../components/MessageCard';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import Terms from '../components/Terms';
 const validationSchema = Yup.object().shape({
   name:Yup.string().required("Enter Name"),
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
@@ -17,9 +18,12 @@ export default function Signup({navigation}) {
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
     const [type,settype]=React.useState(false)
+    const [showTerms,setshowTerms]=React.useState(false)
+
     const handleSubmit = async () => {
         setisload(true);
         try {
+          
           setError("Loggedin Successfully");
           settype(true);
           navigation.navigate("home")
@@ -36,8 +40,15 @@ export default function Signup({navigation}) {
     const callbacksubmit=()=>{
         setissubmit(false)
     }
+    const callbackterms=()=>{
+      setshowTerms(false)
+    }
+  React.useEffect(()=>{
+    setshowTerms(true)
+  },[])
   return (
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
+      <Terms callshow={callbackterms} show={showTerms}/>
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
      <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
         
