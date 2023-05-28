@@ -47,7 +47,7 @@ export default function Chat({navigation,route}) {
                 </ScrollView> 
              </View>
         </View>
-        <CustomButton func={()=>navigation.navigate("placeorder")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Place Order"}/>
+        <CustomButton func={()=>navigation.navigate("placeorder")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Buy Now"}/>
     </View>
        </Screen>
   )

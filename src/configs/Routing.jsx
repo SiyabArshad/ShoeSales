@@ -8,7 +8,6 @@ import ShoeDetail from '../screens/ShoeDetail';
 import TabNavigation from './TabNavigation';
 import PlaceOrder from '../screens/PlaceOrder';
 import Chat from '../screens/Chat';
-
 const Stack = createNativeStackNavigator();
 
 export default function Routing() {

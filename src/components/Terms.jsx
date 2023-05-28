@@ -30,8 +30,8 @@ export default function Terms({show=false,callshow=()=>{},message,type}) {
     }}>
 <ScrollView showsVerticalScrollIndicator={false}>
 <View style={{paddingHorizontal:rp(2),paddingBottom:rp(2)}}>
-<Heading text={"Read Terms and Conditions"} h='h5' style={{marginBottom:rp(2)}}/>
-<CaptionText  text={"lorem simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."} style={{textAlign:"justify",marginBottom:rp(2)}} size='m'/>
+<Heading text={"Read Terms and Conditions"} h='h4' style={{marginBottom:rp(2),paddingHorizontal:rp(2)}}/>
+<CaptionText color={colors.black} text={"lorem simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."} style={{textAlign:"justify",marginBottom:rp(2),fontSize:rp(2.3),paddingHorizontal:rp(2),lineHeight:rp(3.5)}} size='m'/>
 </View>
 </ScrollView>
 <Pressable onPress={()=>{

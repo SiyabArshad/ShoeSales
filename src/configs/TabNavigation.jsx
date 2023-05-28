@@ -4,6 +4,7 @@ import { BottomTabBarProps, BottomTabNavigationOptions, createBottomTabNavigator
 import Home from "../screens/Home"
 import Favourite from '../screens/Favourite'
 import Orders from '../screens/Orders'
+import AddShoe from '../screens/AddShoe'
 import Setting from '../screens/Setting'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5  from "react-native-vector-icons/FontAwesome5"
@@ -14,6 +15,7 @@ import Feather from "react-native-vector-icons/Feather"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Ionicons from "react-native-vector-icons/Ionicons"
+
 const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
   return (
@@ -63,7 +65,7 @@ export default function TabNavigation() {
     />
     <Tab.Screen
       name={"addproductscreen"}
-      component={Home}
+      component={AddShoe}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>

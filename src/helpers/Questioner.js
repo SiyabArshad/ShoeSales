@@ -1,17 +1,35 @@
 const questions=[{
-    quest:"its Available"
+    quest:"is item still available"
 },
 {
-    quest:"Yes its Available"
+    quest:"Yes"
 },
 {
-    quest:"Hows the Condition?"
+    quest:"No"
 },
 {
-    quest:"its New"
+    quest:"Item Condition ?"
 },
 {
-    quest:"its Used"
+    quest:"New"
 },
+{
+    quest:"Used"
+},
+{
+    quest:"Like New"
+},
+{
+    quest:"When Can You Mail it?"
+},
+{
+    quest:"As soon as Possible"
+},
+{
+    quest:"Less than one week"
+},
+{
+    quest:"More Than one week"
+}
 ]
 export default questions

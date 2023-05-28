@@ -33,7 +33,7 @@ export default function Setting({navigation,route}) {
               };
               
               const res=await launchImageLibrary(options);
-              if(res)
+              if(!res.didCancel)
               {
                   setimage(res?.assets)
               }
@@ -50,7 +50,7 @@ export default function Setting({navigation,route}) {
               };
               
               const res=await launchImageLibrary(options);
-              if(res)
+              if(!res.didCancel)
               {
                   setimage(res?.assets)
               }
