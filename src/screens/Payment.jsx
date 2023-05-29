@@ -78,7 +78,8 @@ export default function Payment({navigation,route}) {
         <Heading color={colors.primary} h='h4' text={"Amount"}/>
         <BodyText text={"€  5"}/>
       </View>
-      <View style={{marginBottom:rp(3)}}>
+      {
+        method==="visa"&&<View style={{marginBottom:rp(3)}}>
         <Heading text={"Card Number"} h='h4'/>
         <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginTop:rp(1),paddingVertical:rp(1.4)}}>
              <TextInput
@@ -107,6 +108,7 @@ export default function Payment({navigation,route}) {
       />
         </View>
       </View>
+      }
     </View>
 
     <CustomButton style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Pay Now"}/>
