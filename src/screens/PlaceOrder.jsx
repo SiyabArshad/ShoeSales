@@ -25,6 +25,7 @@ export default function PlaceOrder({navigation,route}) {
     const placeorderfunc=()=>{
         setisload(true);
         try {
+          navigation.navigate("payment")
           setError("Placed");
           settype(true);
         } catch (error) {

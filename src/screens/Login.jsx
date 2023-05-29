@@ -21,7 +21,6 @@ export default function Login({navigation}) {
         try {
           setError("Loggedin Successfully");
           settype(true);
-          navigation.navigate("home")
         } catch (error) {
           setError("Failed");
           settype(false);
@@ -29,6 +28,7 @@ export default function Login({navigation}) {
        finally{
         setissubmit(true);
         setisload(false);
+        navigation.navigate("home")
        }
       };
       
