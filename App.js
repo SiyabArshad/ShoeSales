@@ -4,6 +4,7 @@ import Routing from './src/configs/Routing'
 import SplashScreen from 'react-native-splash-screen'
 
 import { NavigationContainer } from '@react-navigation/native'
+import HomeScreen from './src/screens/HomeScreen'
 export default function App() {
   React.useEffect(()=>{
     setTimeout(()=>{
@@ -12,8 +13,9 @@ export default function App() {
     },5000)
   },[])
   return (
-    <NavigationContainer>
-      <Routing/>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Routing/>
+    // </NavigationContainer>
+    <HomeScreen/>
     )
 }
