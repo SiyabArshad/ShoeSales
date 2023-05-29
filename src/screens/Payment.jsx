@@ -95,7 +95,7 @@ export default function Payment({navigation,route}) {
        
           <TextInput
         keyboardType="numeric"
-        maxLength={4}
+        maxLength={5}
         placeholder="MM/YY"
         value={monthyear}
         onChangeText={handleExpiryChange}

@@ -6,8 +6,10 @@ import SplashScreen from 'react-native-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
 export default function App() {
   React.useEffect(()=>{
+    setTimeout(()=>{
       SplashScreen.hide()
    
+    },5000)
   },[])
   return (
     <NavigationContainer>
