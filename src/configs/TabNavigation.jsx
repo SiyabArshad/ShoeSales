@@ -31,8 +31,7 @@ export default function TabNavigation() {
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
-        height:60
-      }
+         }
     })}
   >
     <Tab.Screen

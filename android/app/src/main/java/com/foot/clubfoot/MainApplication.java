@@ -1,4 +1,4 @@
-package com.sample;
+package com.foot.clubfoot;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

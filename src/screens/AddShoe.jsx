@@ -17,6 +17,7 @@ import { menShoeSizesEU,womenShoeSizesEU } from '../helpers/shoesizes';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
+
 export default function AddShoe({navigation,route}) {
     const [title, settitle] = React.useState('');
     const [desc,setdesc]=React.useState("")
@@ -164,7 +165,7 @@ return (
     </Image>
 </View>
    }
-    <CustomButton func={()=>navigation.navigate("chat")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Continue"}/>
+    <CustomButton func={()=>navigation.navigate("addpayment")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Continue"}/>
      </View>
       </ScrollView>
     </View>
