@@ -88,7 +88,7 @@ export default function Payment({navigation,route}) {
         placeholder="2321 3456 2123 4564"
         value={cardNumber}
         onChangeText={handleCardNumberChange}
-        style={{fontSize:rp(2.5),textAlign:"center",borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
+        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
       />
         </View>
         <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginTop:rp(1),paddingVertical:rp(1.4)}}>
@@ -99,7 +99,7 @@ export default function Payment({navigation,route}) {
         placeholder="MM/YY"
         value={monthyear}
         onChangeText={handleExpiryChange}
-        style={{fontSize:rp(2.5),textAlign:"center",borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
+        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
       />
           <TextInput
         keyboardType="numeric"
@@ -107,7 +107,7 @@ export default function Payment({navigation,route}) {
         placeholder="cvc"
         value={cvc}
         onChangeText={handleCvcChange}
-        style={{fontSize:rp(2.5),textAlign:"center",borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(1)}}
+        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(1)}}
       />
         </View>
       </View>

@@ -25,7 +25,7 @@ export default function PlaceOrder({navigation,route}) {
     const placeorderfunc=()=>{
         setisload(true);
         try {
-          navigation.navigate("payment")
+ 
           setError("Placed");
           settype(true);
         } catch (error) {
@@ -35,7 +35,8 @@ export default function PlaceOrder({navigation,route}) {
        finally{
         setissubmit(true);
         setisload(false);
-       }
+        navigation.navigate("payment") 
+      }
     }
       
     const callbacksubmit=()=>{

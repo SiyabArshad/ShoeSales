@@ -76,7 +76,7 @@ export default function AddPayment({navigation,route}) {
       placeholder="2321 3456 2123 4564"
       value={cardNumber}
       onChangeText={handleCardNumberChange}
-      style={{fontSize:rp(2.8),textAlign:"center"}}
+      style={{fontSize:rp(2.8)}}
     />
       </View>
     </View>
