@@ -37,7 +37,7 @@ export default function Chat({navigation,route}) {
                         <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center"}}>
                            {
                             questions.map((item,i)=>(
-                            <Pressable key={i} style={{marginHorizontal:rp(1),marginVertical:rp(.6),backgroundColor:colors.primary,paddingHorizontal:rp(1),paddingVertical:rp(.7),borderRadius:rp(1)}}>
+                            <Pressable key={i} style={{marginHorizontal:rp(1),marginVertical:rp(.6),backgroundColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.9),borderRadius:rp(2)}}>
                                 <CaptionText size='m' color={colors.white} text={item.quest}/>
                             </Pressable>
                             ))

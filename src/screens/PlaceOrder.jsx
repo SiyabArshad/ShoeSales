@@ -62,7 +62,7 @@ export default function PlaceOrder({navigation,route}) {
 </View>
 <View style={{...styles.center,marginTop:rp(2)}}>
 <TouchableOpacity onPress={placeorderfunc} style={{backgroundColor:colors.primary,width:"60%",...styles.center,paddingVertical:rp(1),borderRadius:rp(3)}}>
-                            <Heading color={colors.white} text={"Proceed"} h='h5'/>
+                            <Heading color={colors.white} text={"Proceed"} h='h3'/>
 </TouchableOpacity>
 </View>
 </View>

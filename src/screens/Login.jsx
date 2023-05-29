@@ -28,13 +28,14 @@ export default function Login({navigation}) {
        finally{
         setissubmit(true);
         setisload(false);
-        navigation.navigate("home")
        }
       };
       
     const callbacksubmit=()=>{
         setissubmit(false)
-    }
+        navigation.navigate("home")
+      
+      }
   return (
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
