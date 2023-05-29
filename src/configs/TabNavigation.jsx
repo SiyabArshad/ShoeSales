@@ -31,6 +31,8 @@ export default function TabNavigation() {
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
+        minHeight:70,
+        paddingVertical:RFPercentage(2)
          }
     })}
   >

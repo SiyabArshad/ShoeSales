@@ -90,6 +90,9 @@ export default function Payment({navigation,route}) {
         onChangeText={handleCardNumberChange}
         style={{fontSize:rp(2.5),textAlign:"center",borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
       />
+        </View>
+        <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginTop:rp(1),paddingVertical:rp(1.4)}}>
+       
           <TextInput
         keyboardType="numeric"
         maxLength={4}

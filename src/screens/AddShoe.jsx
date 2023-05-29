@@ -165,7 +165,7 @@ return (
     </Image>
 </View>
    }
-    <CustomButton func={()=>navigation.navigate("addpayment")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Continue"}/>
+    <CustomButton func={()=>navigation.navigate("payment")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Continue"}/>
      </View>
       </ScrollView>
     </View>
