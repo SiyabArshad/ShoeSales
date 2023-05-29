@@ -25,10 +25,10 @@ export default function Orders() {
             {
                 [1,2,34,56,7,8,98].map((item,i)=>(
                     <Pressable onPress={()=>setshowmodal(true)} key={i} style={{paddingHorizontal:rp(2),paddingVertical:rp(1.5),backgroundColor:colors.lightgrey,marginBottom:rp(1),borderRadius:rp(1)}}>
-                        <Heading text={"Order #46784889"} h='h6' style={{marginBottom:rp(1)}}/>
-                        <BodyText color={colors.lightblack} text={"Nike Air Jorden"} size='s'/>
+                        <Heading text={"Order #46784889"} h='h4' style={{marginBottom:rp(1)}}/>
+                        <BodyText color={colors.lightblack} text={"Nike Air Jorden"} size='m'/>
                         <View style={{display:"flex",flexDirection:"row",justifyContent:"flex-end"}}>
-                            <Heading h='h6' text={"€ 600"}/>
+                            <Heading h='h4' text={"€ 600"}/>
                         </View>
                     </Pressable>
                 ))
