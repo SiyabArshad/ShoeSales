@@ -30,8 +30,13 @@ export default function OrderModal({show=false,callshow=()=>{},message,type}) {
     ,paddingVertical:20
     }}>
 <View style={{}}>
-    <Heading text={"Order Track Number"} style={{marginBottom:rp(2)}} h='h3'/>
+    {/* <Heading text={"Order Track Number"} style={{marginBottom:rp(2)}} h='h3'/>
     <BodyText text={"#9784095908"} style={{textAlign:"center"}}/>    
+     */}
+      <BodyText text={"User id: Ahmed hassan"} size='m' style={{marginBottom:rp(1)}}/>
+      <BodyText text={"Order id: #79890089"} size='m' style={{marginBottom:rp(1)}}/>
+      <BodyText text={"Paypal id: Ahmed76"} size='m' style={{marginBottom:rp(1)}}/>
+      <BodyText text={"Track Number: 789459843"} size='m' style={{marginBottom:rp(2)}}/>
 </View>
 <Pressable onPress={()=>{
   callshow()

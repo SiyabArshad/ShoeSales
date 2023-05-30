@@ -88,7 +88,7 @@ return (
         <Heading text={"List an Item"} h='h3' style={{marginBottom:rp(2)}}/>
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"Brand"} h='h3'/>
-                <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
           {
@@ -108,12 +108,12 @@ return (
           }
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"SIZE"} h='h3'/>
-                <TextInput editable={false}  value={data?.size} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                <TextInput editable={false}  value={data?.size} style={{color:colors.lightblack,fontFamily:fonts.mitalic, width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
-                <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>

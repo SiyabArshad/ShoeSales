@@ -93,13 +93,7 @@ const callbacksubmit=()=>{
     </View>
 
     <CustomButton func={handleSubmit} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Pay Now"}/>
-    <View style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-    <Pressable>
-                    <Text style={{fontFamily:fonts.mregular,fontSize:rp(2.5),color:colors.textgrey}}>
-                    How Shipping is Getting Placed?
-                    </Text>
-                </Pressable>
-    </View>
+
     </View>
     </Screen>
   )
