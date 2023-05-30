@@ -15,6 +15,7 @@ import { SelectList } from 'react-native-dropdown-select-list'
 import DropDownMenu from '../components/DropDownMenu';
 import CustomButton from "../components/CustomButton"
 import { useRoute,useNavigation } from '@react-navigation/native';
+import Notification from '../components/Notification';
 import OwnProduct from '../components/OwnProduct';
 export default function StartScreen({route}) {
     const navigation=useNavigation()
@@ -53,6 +54,9 @@ export default function StartScreen({route}) {
                 ))
             }
         </View>
+           }
+           {
+            tab===1&&<Notification/>
            }
         </ScrollView>
     </View>

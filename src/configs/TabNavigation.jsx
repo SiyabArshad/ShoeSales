@@ -32,7 +32,7 @@ export default function TabNavigation({route}) {
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
-        minHeight:70,
+        minHeight:50,
         paddingVertical:RFPercentage(2)
          }
     })}
@@ -44,10 +44,10 @@ export default function TabNavigation({route}) {
         tabBarIcon:({color,size,focused})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
       {
-        focused?
-        <Image style={{height:35,width:35}} source={require("../../assets/images/activemain.png")}/>
-        :
-        <Image style={{height:35,width:35}} source={require("../../assets/images/chef-hat.png")}/>
+        // focused?
+        // <Image style={{height:35,width:35}} source={require("../../assets/images/activemain.png")}/>
+        // :
+        <Image style={{height:35,width:35}} source={require("../../assets/images/headercustom.png")}/>
       }
         </View>
         )
