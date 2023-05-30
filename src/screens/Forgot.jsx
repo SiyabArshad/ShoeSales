@@ -7,6 +7,7 @@ import IonicIcon from 'react-native-vector-icons/Ionicons';
 import MessageCard from '../components/MessageCard';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import CustomButton from '../components/CustomButton';
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
 });
@@ -15,12 +16,12 @@ export default function Forgot({navigation}) {
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
     const [type,settype]=React.useState(false)
+
     const handleSubmit = async () => {
         setisload(true);
         try {
-          setError("Send");
+          setError("Password Recovery Email Sent");
           settype(true);
-          navigation.navigate("home")
         } catch (error) {
           setError("Failed");
           settype(false);
@@ -39,11 +40,11 @@ export default function Forgot({navigation}) {
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
      <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
         
-     <Pressable onPress={()=>navigation.pop()} style={styles.btn}>
-     <IonicIcon name="arrow-back" size={24} color={colors.white} />
-     </Pressable>
-     </View>
-     <View style={{marginVertical:rp(5),marginHorizontal:rp(2)}}>
+        <Pressable onPress={()=>navigation.pop()} style={styles.btn}>
+        <IonicIcon name="arrow-back" size={24} color={colors.white} />
+        </Pressable>
+        </View>
+     <View style={{marginTop:rp(5),marginHorizontal:rp(0)}}>
      <Text style={styles.text1}>
        {" "}Forgot {"\n"} Password :)
      </Text>
@@ -55,7 +56,7 @@ export default function Forgot({navigation}) {
     >
        {({ handleChange, handleSubmit, values, errors }) => (
      <View style={{marginTop:rp(8),marginHorizontal:rp(2)}}>
-     <View style={{marginBottom:rp(7)}}>
+     <View style={{marginBottom:rp(5)}}>
         <Text style={styles.lable}>Email</Text>
         <TextInput 
          onChangeText={handleChange('email')}
@@ -65,16 +66,7 @@ export default function Forgot({navigation}) {
       {errors.email && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.email}</Text>}
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
-                <Pressable 
-                disabled={issubmit} 
-                onPress={handleSubmit} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
-                   {
-                        isload?
-                        <ActivityIndicator size={30} color={colors.white}/>
-                        :
-                        <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Send</Text>
-                    }
-                </Pressable>
+     <CustomButton func={handleSubmit}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"SEND"}/>
      </View> 
      </View>
        )
@@ -96,13 +88,13 @@ const styles=StyleSheet.create({
         justifyContent:"center",
     },
     btn:{
-        backgroundColor:colors.primary,
+        backgroundColor:colors.black,
         paddingHorizontal:5,
         paddingVertical:4,
         borderRadius:5
     },
     text1:{
-        color:colors.primary,
+        color:colors.black,
         fontFamily:fonts.mebold,
         fontSize:rp(5)
     },

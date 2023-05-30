@@ -92,6 +92,10 @@ export default function Signup({navigation}) {
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
      <CustomButton func={handleSubmit}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"SIGN UP"}/>
+     <CustomButton func={handleSubmit}  style={{marginTop:rp(1),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold,fontSize:rp(2.2)}} text={"Continue with Google"}>
+      <Image style={{height:25,width:25,marginRight:rp(2)}} source={require("../../assets/images/google.png")}/>
+      </CustomButton>
+      
                 <Pressable 
                 onPress={()=>navigation.navigate("login")}
                  style={{marginTop:rp(3)}}>
