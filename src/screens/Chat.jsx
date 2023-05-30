@@ -14,7 +14,11 @@ import CustomButton from "../components/CustomButton"
 import IncommingMessage from '../components/IncommingMessage';
 import OutGoingMessage from '../components/OutGoingMessage';
 import questions from '../helpers/Questioner';
-export default function Chat({navigation,route}) {
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function Chat({route}) {
+  const navigation=useNavigation()
+  
   return (
     <Screen>
     <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:rp(2),marginVertical:rp(2)}}>

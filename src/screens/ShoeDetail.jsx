@@ -11,7 +11,11 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import { Image } from 'react-native-elements';
 import BodyText from '../components/Typography/BodyText';
 import CustomButton from "../components/CustomButton"
-export default function ShoeDetail({navigation,route}) {
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function ShoeDetail({route}) {
+  const navigation=useNavigation()
+  
     const [fav,setfav]=React.useState(false)
   return (
     <Screen>

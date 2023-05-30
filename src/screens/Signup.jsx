@@ -9,12 +9,16 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Terms from '../components/Terms';
 import CustomButton from '../components/CustomButton';
+import { useRoute,useNavigation } from '@react-navigation/native';
+
 const validationSchema = Yup.object().shape({
   name:Yup.string().required("Enter Name"),
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
   password: Yup.string().required('Password is required').min(6),
 });
-export default function Signup({navigation}) {
+export default function Signup() {
+  const navigation=useNavigation()
+  
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
@@ -92,7 +96,7 @@ export default function Signup({navigation}) {
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
      <CustomButton func={handleSubmit}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"SIGN UP"}/>
-     <CustomButton func={handleSubmit}  style={{marginTop:rp(1),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold,fontSize:rp(2.2)}} text={"Continue with Google"}>
+     <CustomButton func={()=>navigation.navigate("homescreen")}  style={{marginTop:rp(1),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold,fontSize:rp(2.2)}} text={"Continue with Google"}>
       <Image style={{height:25,width:25,marginRight:rp(2)}} source={require("../../assets/images/google.png")}/>
       </CustomButton>
       

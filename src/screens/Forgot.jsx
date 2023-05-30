@@ -11,7 +11,11 @@ import CustomButton from '../components/CustomButton';
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
 });
-export default function Forgot({navigation}) {
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function Forgot() {
+  const navigation=useNavigation()
+  
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')

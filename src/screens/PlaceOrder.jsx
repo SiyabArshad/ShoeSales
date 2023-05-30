@@ -13,7 +13,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import BodyText from '../components/Typography/BodyText';
 import Loading from "../components/Loading"
 import MessageCard from "../components/MessageCard"
-export default function PlaceOrder({navigation,route}) {
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function PlaceOrder({route}) {
+  const navigation=useNavigation()
+  
     const [name,setname]=React.useState("")
     const [phone,setphone]=React.useState("")
     const [address,setaddress]=React.useState("")

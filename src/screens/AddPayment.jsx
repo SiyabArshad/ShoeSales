@@ -17,8 +17,11 @@ import { menShoeSizesEU,womenShoeSizesEU } from '../helpers/shoesizes';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
+import { useRoute,useNavigation } from '@react-navigation/native';
 
-export default function AddPayment({navigation,route}) {
+export default function AddPayment({route}) {
+  const navigation=useNavigation()
+  
   const [method,setmethod]=React.useState("card")
   const [cardNumber, setCardNumber] = React.useState('');
 

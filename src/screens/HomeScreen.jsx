@@ -14,8 +14,11 @@ import RNPickerSelect from "react-native-picker-select";
 import { SelectList } from 'react-native-dropdown-select-list'
 import DropDownMenu from '../components/DropDownMenu';
 import CustomButton from "../components/CustomButton"
-export default function HomeScreen({navigation,route}) {
-    const [csstatus,setcsstatus]=React.useState("buy")
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function HomeScreen({route}) {
+    const navigation=useNavigation()
+    const [csstatus,setcsstatus]=React.useState(false)
     const [afo,setafo]=React.useState("STANDAR")
     const [bar,setbar]=React.useState("")
     const [brand,setbrand]=React.useState("PONSETI")
@@ -25,7 +28,7 @@ export default function HomeScreen({navigation,route}) {
     const [cond,setcond]=React.useState("NEW")
   
    const sellfunc=()=>{
-    setcsstatus("seller")
+    setcsstatus(true)
     if(afo==='')
     {    
         navigation.navigate("additem",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus }})
@@ -42,7 +45,7 @@ export default function HomeScreen({navigation,route}) {
     <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
       <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:rp(1),marginBottom:rp(5)}}>
             <View style={{display:"flex",flexDirection:"row",alignItems:"center",borderRadius:rp(1),borderWidth:1,borderColor:colors.black,padding:2}}>
-                <TouchableOpacity onPress={()=>setcsstatus("buy")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.black}}>
+                <TouchableOpacity onPress={()=>setcsstatus(false)} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.black}}>
                     <BodyText color={colors.white} text={"Buy"}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={sellfunc} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.white}}>
@@ -175,7 +178,7 @@ export default function HomeScreen({navigation,route}) {
             </View>
 
         </View>
-        <CustomButton func={()=>navigation.navigate("additem",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
+        <CustomButton func={()=>navigation.navigate("home",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
     </View>
     </Screen>

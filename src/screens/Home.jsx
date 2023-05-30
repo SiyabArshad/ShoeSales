@@ -5,17 +5,22 @@ import colors from '../helpers/colors';
 import fonts from '../helpers/fonts';
 import Screen from "../components/Screen"
 import Octicons from "react-native-vector-icons/Octicons"
+import AntDesign from "react-native-vector-icons/AntDesign"
 import { Avatar,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
-export default function Home({navigation,route}) {
-  const[search,setsearch]=React.useState("")
+import { useRoute,useNavigation } from '@react-navigation/native';
+export default function Home({data}) {
+  const navigation=useNavigation()
   const[lth,setlth]=React.useState(false)
   return (
     <Screen>
        <View style={styles.header}>
-        <TextInput onChangeText={(e)=>setsearch(e)} value={search} placeholder='Search Shoe' style={styles.inp}/>    
-        <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.primary:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
-        <Octicons name="arrow-switch" size={28} color={lth?colors.white:colors.primary} />
+       <Pressable onPress={()=>navigation.navigate("homescreen")} style={[styles.center,{paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
+       <AntDesign name="home" size={24} color={colors.black} />
+        </Pressable>
+         
+        <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.black:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
+        <Octicons name="arrow-switch" size={28} color={lth?colors.white:colors.black} />
         </Pressable>
        </View>
          {/* products */}

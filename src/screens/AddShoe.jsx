@@ -19,8 +19,11 @@ import { menShoeSizesEU,womenShoeSizesEU } from '../helpers/shoesizes';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
+import { useRoute,useNavigation } from '@react-navigation/native';
 
-export default function AddShoe({navigation,route}) {
+export default function AddShoe({route}) {
+    const navigation=useNavigation()
+  
     const {data}=route.params
     const [desc,setdesc]=React.useState("")
     const [paypalname, setpaypalname] = React.useState("");

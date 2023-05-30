@@ -13,7 +13,11 @@ import CustomButton from '../components/CustomButton'
 import { Avatar,Image } from 'react-native-elements'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
-export default function Setting({navigation,route}) {
+import { useRoute,useNavigation } from '@react-navigation/native';
+
+export default function Setting({route}) {
+    const navigation=useNavigation()
+  
     const askForPermissions=async(permissions)=>{
         const result=await request(permissions)
         return result

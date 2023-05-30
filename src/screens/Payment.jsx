@@ -17,8 +17,10 @@ import { menShoeSizesEU,womenShoeSizesEU } from '../helpers/shoesizes';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
+import { useRoute,useNavigation } from '@react-navigation/native';
 
-export default function Payment({navigation,route}) {
+export default function Payment({route}) {
+  const navigation=useNavigation()
   const {data}=route.params
   const [method,setmethod]=React.useState("paypal")
   const [isload,setisload]=React.useState(false)
@@ -44,7 +46,7 @@ export default function Payment({navigation,route}) {
   
 const callbacksubmit=()=>{
     setissubmit(false)
-    navigation.navigate("homescreen")
+    navigation.navigate("home",{data})
 }
   return (
     <Screen>

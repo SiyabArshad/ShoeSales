@@ -17,10 +17,11 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 const Tab = createBottomTabNavigator();
-export default function TabNavigation() {
+export default function TabNavigation({route}) {
+  const data=route?.params?.data
   return (
     <Tab.Navigator
-    initialRouteName={"homescreen"}
+    initialRouteName={"homescreen2"}
     screenOptions={({ route }) => ({
       tabBarActiveTintColor: colors.primary,
       tabBarInactiveTintColor: colors.lightblack,
@@ -37,8 +38,7 @@ export default function TabNavigation() {
     })}
   >
     <Tab.Screen
-      name={"homescreen"}
-      component={Home}
+      name={"homescreen2"}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
@@ -49,10 +49,13 @@ export default function TabNavigation() {
         )
         }}
       
-    />
+    >
+      {
+        ()=><Home data={data}/>
+      }
+      </Tab.Screen>
  <Tab.Screen
       name={"favscreen"}
-      component={Favourite}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
@@ -63,24 +66,13 @@ export default function TabNavigation() {
         )
         }}
       
-    />
-    <Tab.Screen
-      name={"addproductscreen"}
-      component={AddShoe}
-      options={{
-        tabBarShowLabel: false,
-        tabBarIcon:({color,size})=>
-        (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
-          <Ionicons name="add-circle" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Add</Text>
-        </View>
-        )
-        }}
-      
-    />
+    >
+       {
+        ()=><Favourite data={data}/>
+      }
+      </Tab.Screen>
     <Tab.Screen
       name={"ordersscreen"}
-      component={Orders}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
@@ -91,10 +83,13 @@ export default function TabNavigation() {
         )
         }}
       
-    />
+    >
+       {
+        ()=><Orders data={data}/>
+      }
+      </Tab.Screen>
     <Tab.Screen
       name={"settingscreen"}
-      component={Setting}
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
@@ -105,7 +100,11 @@ export default function TabNavigation() {
         )
         }}
       
-    />
+    >
+       {
+        ()=><Setting data={data}/>
+      }
+      </Tab.Screen>
   </Tab.Navigator>
   )
 }
