@@ -9,7 +9,7 @@ export default function IncommingMessage() {
     <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"flex-start",marginBottom:rp(2)}}>
             <View>
             <View style={{backgroundColor:colors.lightgrey,paddingHorizontal:rp(3),paddingVertical:rp(1.5),borderRadius:rp(5)}}>
-                <CaptionText size='m' style={{fontSize:rp(2.3)}} text={"its Available"} color={colors.black}/>
+                <CaptionText size='m' style={{fontSize:rp(2.3)}} text={"is item still Available"} color={colors.black}/>
             </View>
             <View style={{marginTop:rp(1),display:"flex",flexDirection:"row",justifyContent:"flex-start",marginLeft:rp(2)}}>
             <CaptionText size='s' color={colors.lightblack} text={"10:00 PM"}/>

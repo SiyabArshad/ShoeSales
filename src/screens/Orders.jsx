@@ -14,7 +14,7 @@ import CustomButton from "../components/CustomButton"
 import OrderModal from '../components/OrdersModal';
 import { useRoute,useNavigation } from '@react-navigation/native';
 
-export default function Orders() {
+export default function Orders({data}) {
     const navigation=useNavigation()
     const [showmodal,setshowmodal]=React.useState(false)
     const callshow=()=>{

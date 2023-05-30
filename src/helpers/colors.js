@@ -16,6 +16,7 @@ const colors={
     lightgreen1:"#BAE9B2",
     danger:"#C63733",
     grey:"#D9D9D9",
-    primary:"#404DF3"
+    primary:"#000000"
+    // primary:"#404DF3"
 }
 export default colors

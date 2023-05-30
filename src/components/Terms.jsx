@@ -36,7 +36,7 @@ export default function Terms({show=false,callshow=()=>{},message,type}) {
 </ScrollView>
 <Pressable onPress={()=>{
   callshow()
-}} style={{marginTop:rp(2),backgroundColor:colors.black,width:"60%",paddingHorizontal:10,paddingVertical:7,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:10}}>
+}} style={{marginTop:rp(2),backgroundColor:colors.primary,width:"60%",paddingHorizontal:10,paddingVertical:7,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:10}}>
     <Text style={{color:colors.white,fontSize:18}}>Accept Terms</Text>
 </Pressable>
         </View>

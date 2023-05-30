@@ -7,6 +7,7 @@ import fonts from '../helpers/fonts'
 import { RFPercentage as rp, RFValue as rf } from "react-native-responsive-fontsize";
 import CaptionText from './Typography/BodyText'
 import Heading from './Typography/Heading'
+import BodyText from './Typography/BodyText'
 export default function OrderModal({show=false,callshow=()=>{},message,type}) {
   return (
     <Modal transparent visible={show}>
@@ -29,16 +30,8 @@ export default function OrderModal({show=false,callshow=()=>{},message,type}) {
     ,paddingVertical:20
     }}>
 <View style={{}}>
-    <View style={{display:"flex",flexDirection:"row",alignItems:"center"}}>
-        <Text style={{width:"80%",marginBottom:rp(1),fontFamily:fonts.mregular}}>{`Address: 123 Main Street Anytown, CA 12345 United States`}</Text>       
-    </View>
-    <View style={{display:"flex",flexDirection:"row",alignItems:"center"}}>
-        <Text style={{width:"80%",marginBottom:rp(1),fontFamily:fonts.mregular}}>{`Phone:(555) 123-4567`}</Text>       
-    </View>
-    <View style={{marginBottom:rp(2),display:"flex",flexDirection:"row",alignItems:"center"}}>
-        <Text style={{width:"80%",marginBottom:rp(1),fontFamily:fonts.mregular}}>{`Token:8uweue8uw89872367`}</Text>       
-    </View>
-    
+    <Heading text={"Order Track Number"} style={{marginBottom:rp(2)}} h='h3'/>
+    <BodyText text={"#9784095908"} style={{textAlign:"center"}}/>    
 </View>
 <Pressable onPress={()=>{
   callshow()

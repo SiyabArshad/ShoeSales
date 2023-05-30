@@ -32,7 +32,7 @@ export default function MessageCard({show=false,callshow=()=>{},message,type}) {
         <Icon2 name="alert" size={42} color={colors.danger} />
       }
     </View>
-     <Text style={{fontSize:19,color:colors.black,marginVertical:10}}>{message&&message}</Text>
+     <Text style={{fontSize:19,color:colors.primary,marginVertical:10}}>{message&&message}</Text>
 <Pressable onPress={()=>{
   callshow()
 }} style={{backgroundColor:colors.black,width:"60%",paddingHorizontal:10,paddingVertical:7,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:10}}>

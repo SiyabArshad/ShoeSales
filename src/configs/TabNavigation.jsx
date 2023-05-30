@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text,Image } from 'react-native'
 import React from 'react'
 import { BottomTabBarProps, BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from "../screens/Home"
@@ -12,7 +12,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import colors from '../helpers/colors';
 import fonts from '../helpers/fonts';
 import Feather from "react-native-vector-icons/Feather"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MaterialCoomunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Ionicons from "react-native-vector-icons/Ionicons"
 
@@ -41,10 +41,14 @@ export default function TabNavigation({route}) {
       name={"homescreen2"}
       options={{
         tabBarShowLabel: false,
-        tabBarIcon:({color,size})=>
+        tabBarIcon:({color,size,focused})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
-          <AntDesign name="home" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Home</Text>
+      {
+        focused?
+        <Image style={{height:35,width:35}} source={require("../../assets/images/activemain.png")}/>
+        :
+        <Image style={{height:35,width:35}} source={require("../../assets/images/chef-hat.png")}/>
+      }
         </View>
         )
         }}
@@ -60,8 +64,7 @@ export default function TabNavigation({route}) {
         tabBarShowLabel: false,
         tabBarIcon:({color,size})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
-          <MaterialIcons name="favorite" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Favorites</Text>
+          <AntDesign name="hearto" size={size} color={color} />
         </View>
         )
         }}
@@ -78,7 +81,6 @@ export default function TabNavigation({route}) {
         tabBarIcon:({color,size})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
           <FontAwesome5 name="shipping-fast" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Orders</Text>
         </View>
         )
         }}
@@ -95,7 +97,6 @@ export default function TabNavigation({route}) {
         tabBarIcon:({color,size})=>
         (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
           <AntDesign name="setting" size={size} color={color} />
-          <Text style={{color:color,fontFamily:fonts.mregular,fontSize:12,marginTop:5}}>Setting</Text>
         </View>
         )
         }}

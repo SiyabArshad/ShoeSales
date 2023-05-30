@@ -10,7 +10,7 @@ import ShoeCard from '../components/ShoeCard';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import { useRoute,useNavigation } from '@react-navigation/native';
 
-export default function Favourite({route}) {
+export default function Favourite({route,data}) {
   const navigation=useNavigation()
   
     const[lth,setlth]=React.useState(false)
@@ -20,8 +20,13 @@ export default function Favourite({route}) {
       <Pressable onPress={()=>navigation.navigate("homescreen")} style={[styles.center,{paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
        <AntDesign name="home" size={24} color={colors.black} />
         </Pressable>
-        <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.primary:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
-        <Octicons name="arrow-switch" size={28} color={lth?colors.white:colors.primary} />
+        <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.black:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
+       {
+        lth?
+        <Image style={{height:26,width:26}} source={require("../../assets/images/sortwhite.png")}/>
+        :
+        <Image style={{height:26,width:26}} source={require("../../assets/images/sortblack.png")}/>
+       }
         </Pressable>
        </View>
          {/* products */}

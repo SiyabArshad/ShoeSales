@@ -9,7 +9,7 @@ export default function OutGoingMessage() {
     <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"flex-end",marginBottom:rp(2)}}>
             <View>
             <View style={{backgroundColor:colors.primary,paddingHorizontal:rp(3),paddingVertical:rp(1.5),borderRadius:rp(5)}}>
-                <CaptionText size='m' style={{fontSize:rp(2.3)}} text={"Yes its Available"} color={colors.white}/>
+                <CaptionText size='m' style={{fontSize:rp(2.3)}} text={"Yes"} color={colors.white}/>
             </View>
             <View style={{marginTop:rp(1),display:"flex",flexDirection:"row",justifyContent:"flex-start",marginLeft:rp(2)}}>
             <CaptionText size='s' color={colors.lightblack} text={"10:05 PM"}/>

@@ -6,6 +6,7 @@ import fonts from '../helpers/fonts';
 import Screen from "../components/Screen"
 import Octicons from "react-native-vector-icons/Octicons"
 import AntDesign from "react-native-vector-icons/AntDesign"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { Avatar,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
 import { useRoute,useNavigation } from '@react-navigation/native';
@@ -20,7 +21,12 @@ export default function Home({data}) {
         </Pressable>
          
         <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.black:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
-        <Octicons name="arrow-switch" size={28} color={lth?colors.white:colors.black} />
+       {
+        lth?
+        <Image style={{height:26,width:26}} source={require("../../assets/images/sortwhite.png")}/>
+        :
+        <Image style={{height:26,width:26}} source={require("../../assets/images/sortblack.png")}/>
+       }
         </Pressable>
        </View>
          {/* products */}

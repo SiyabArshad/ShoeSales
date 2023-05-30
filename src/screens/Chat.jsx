@@ -17,6 +17,7 @@ import questions from '../helpers/Questioner';
 import { useRoute,useNavigation } from '@react-navigation/native';
 
 export default function Chat({route}) {
+  const {data}=route?.params
   const navigation=useNavigation()
   
   return (
@@ -40,9 +41,15 @@ export default function Chat({route}) {
              <ScrollView horizontal showsHorizontalScrollIndicator={false} >
                         <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center"}}>
                            {
-                            questions.map((item,i)=>(
+                            data?.csstatus?
+                            ["Yes","No"].map((item,i)=>(
+                              <Pressable key={i} style={{marginHorizontal:rp(1),marginVertical:rp(.6),backgroundColor:colors.primary,paddingHorizontal:rp(3),paddingVertical:rp(.9),borderRadius:rp(2)}}>
+                                  <CaptionText size='m' color={colors.white} text={item}/>
+                              </Pressable>
+                              ))
+                            :["is item still Available"].map((item,i)=>(
                             <Pressable key={i} style={{marginHorizontal:rp(1),marginVertical:rp(.6),backgroundColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.9),borderRadius:rp(2)}}>
-                                <CaptionText size='m' color={colors.white} text={item.quest}/>
+                                <CaptionText size='m' color={colors.white} text={item}/>
                             </Pressable>
                             ))
                            }
