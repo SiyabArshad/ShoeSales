@@ -9,7 +9,7 @@ import { Avatar,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import { useRoute,useNavigation } from '@react-navigation/native';
-
+import FavouriteCard from '../components/FavouriteCard';
 export default function Favourite({route,data}) {
   const navigation=useNavigation()
   
@@ -31,10 +31,11 @@ export default function Favourite({route,data}) {
        </View>
          {/* products */}
          <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={{display:"flex",flexDirection:"row",flexWrap:"wrap",alignItems:"center",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
+         <View style={{display:"flex",flexDirection:"column",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
+          
           {
             [1,2,2,3,4,5,6,7,33,7,788].map((item,i)=>(
-              <ShoeCard func={()=>navigation.navigate("details",{data})} key={i}/>
+              <FavouriteCard func={()=>navigation.navigate("details",{data})} key={i}/>
             ))
           }
           </View>

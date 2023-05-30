@@ -10,6 +10,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { Avatar,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
 import { useRoute,useNavigation } from '@react-navigation/native';
+import ItemCard from "../components/ItemCard"
 export default function Home({data}) {
   const navigation=useNavigation()
   const[lth,setlth]=React.useState(false)
@@ -31,10 +32,11 @@ export default function Home({data}) {
        </View>
          {/* products */}
          <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={{display:"flex",flexDirection:"row",flexWrap:"wrap",alignItems:"center",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
+         <View style={{display:"flex",flexDirection:"column",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
+        
           {
             [1,2,2,3,4,5,6,7,33,7,788].map((item,i)=>(
-              <ShoeCard func={()=>navigation.navigate("details",{data})} key={i}/>
+              <ItemCard func={()=>navigation.navigate("details",{data})} key={i}/>
             ))
           }
           </View>
