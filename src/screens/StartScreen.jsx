@@ -15,9 +15,11 @@ import { SelectList } from 'react-native-dropdown-select-list'
 import DropDownMenu from '../components/DropDownMenu';
 import CustomButton from "../components/CustomButton"
 import { useRoute,useNavigation } from '@react-navigation/native';
+import OwnProduct from '../components/OwnProduct';
 export default function StartScreen({route}) {
     const navigation=useNavigation()
-    const [csstatus,setcsstatus]=React.useState(false)
+    const [tab,settab]=React.useState(0)
+    
 
   return (
     <Screen>
@@ -32,6 +34,27 @@ export default function StartScreen({route}) {
                 <BodyText text={"Sell"} color={colors.white}/>
                 </TouchableOpacity>
         </View>
+        <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginVertical:rp(2)}}>
+           <View style={{padding:1,display:"flex",flexDirection:"row",alignItems:'center',borderWidth:1,borderColor:colors.black,borderRadius:rp(1)}}>
+           <TouchableOpacity onPress={()=>settab(0)} style={{paddingHorizontal:rp(3),paddingVertical:rp(1.3),backgroundColor:tab===0?colors.black:colors.white,borderRadius:rp(1)}}>
+                <BodyText color={tab===0?colors.white:colors.black} text={"Your Products"} size='m'/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>settab(1)} style={{paddingHorizontal:rp(3),paddingVertical:rp(1),backgroundColor:tab===1?colors.black:colors.white,borderRadius:rp(1)}}>
+            <BodyText color={tab===1?colors.white:colors.black} text={"Notifications"} size='m'/>
+            </TouchableOpacity>
+           </View>
+        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+           {
+            tab===0&& <View style={{display:"flex",flexDirection:"column"}}>
+            {
+                [1,2,3,4].map((item,i)=>(
+                    <OwnProduct key={i}/>
+                ))
+            }
+        </View>
+           }
+        </ScrollView>
     </View>
     </Screen>
   )

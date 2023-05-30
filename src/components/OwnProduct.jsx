@@ -8,8 +8,7 @@ import Heading from "./Typography/Heading"
 import BodyText from "./Typography/BodyText"
 import { Image } from 'react-native-elements';
 
-export default function ItemCard({func=()=>{}}) {
-    const[fav,setfav]=React.useState(false)
+export default function OwnProduct({func=()=>{}}) {
   return (
     <View  style={{width:"98%",marginHorizontal:"1%",backgroundColor:"#32353d",marginBottom:rp(1.5),display:"flex",flexDirection:"row",borderRadius:rp(2),
     shadowColor: "#000000",
@@ -27,8 +26,8 @@ elevation: 4
      <View style={{width:"60%"}}>
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginHorizontal:rp(1),marginVertical:rp(2)}}>
             <BodyText color={colors.white} text={"Nike Air Jorden"} h='h3'/>
-          <TouchableOpacity onPress={()=>setfav(!fav)}>
-          <MaterialIcons name={fav?"favorite":"favorite-outline"} size={24} color={colors.white} />
+          <TouchableOpacity>
+          <MaterialIcons name="delete" size={24} color={colors.danger} />
           </TouchableOpacity>
         </View>
         <View style={{marginLeft:rp(1)}}>
