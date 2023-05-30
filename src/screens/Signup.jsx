@@ -138,7 +138,7 @@ const styles=StyleSheet.create({
     text1:{
         color:colors.black,
         fontFamily:fonts.mebold,
-        fontSize:rp(5)
+        fontSize:rp(4)
     },
     text2:{
         color:colors.textgrey,

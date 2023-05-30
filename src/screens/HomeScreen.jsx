@@ -102,7 +102,7 @@ export default function HomeScreen({route}) {
                 <BodyText text={"BRAND"} h='h3'/>
                 <SelectList 
                 dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
+                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
         setSelected={(val) => setbrand(val)} 
         data={[
             {key:"PONSETI",value:"PONSETI"},
@@ -117,7 +117,7 @@ export default function HomeScreen({route}) {
                 <BodyText text={"COLOR"} h='h3'/>
                 <SelectList 
                 dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
+                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
         setSelected={(val) => setcolor(val)} 
         data={[
             {key:"GRAY",value:"GRAY"},
@@ -133,7 +133,7 @@ export default function HomeScreen({route}) {
                 <BodyText text={"SIZE"} h='h3'/>
                 <SelectList 
                 dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
+                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
         setSelected={(val) => setsize(val)} 
         data={[
             {key:"Preemie 6-0",value:"Preemie 6-0"},
@@ -162,7 +162,7 @@ export default function HomeScreen({route}) {
                 <BodyText text={"PAIR"} h='h3'/>
                 <SelectList 
                 dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
+                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
         setSelected={(val) => setpair(val)} 
         data={[
             {key:"PAIR",value:"PAIR"},
@@ -177,7 +177,7 @@ export default function HomeScreen({route}) {
                 <BodyText text={"CONDITION"} h='h3'/>
                 <SelectList 
                 dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
+                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
         setSelected={(val) => setcond(val)} 
         data={[
             {key:"NEW",value:"NEW"},

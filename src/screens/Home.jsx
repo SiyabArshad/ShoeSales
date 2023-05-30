@@ -7,10 +7,11 @@ import Screen from "../components/Screen"
 import Octicons from "react-native-vector-icons/Octicons"
 import AntDesign from "react-native-vector-icons/AntDesign"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import { Avatar,Image } from 'react-native-elements'
+import { Avatar,Chip,Image } from 'react-native-elements'
 import ShoeCard from '../components/ShoeCard';
 import { useRoute,useNavigation } from '@react-navigation/native';
 import ItemCard from "../components/ItemCard"
+import BodyText from '../components/Typography/BodyText';
 export default function Home({data}) {
   const navigation=useNavigation()
   const[lth,setlth]=React.useState(false)
@@ -29,6 +30,27 @@ export default function Home({data}) {
         <Image style={{height:26,width:26}} source={require("../../assets/images/sortblack.png")}/>
        }
         </Pressable>
+       </View>
+       <View>
+       <ScrollView style={{}} horizontal showsHorizontalScrollIndicator={false}> 
+       <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginVertical:rp(1),marginHorizontal:rp(2)}}>
+        <View style={{borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(.6),borderRadius:rp(3),marginRight:rp(1)}}>
+          <BodyText  text={data?.color} size='m'/>
+        </View>
+        <View style={{borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(.6),borderRadius:rp(3),marginRight:rp(1)}}>
+          <BodyText  text={data?.brand} size='m'/>
+        </View>
+        <View style={{borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(.6),borderRadius:rp(3),marginRight:rp(1)}}>
+          <BodyText  text={data?.size} size='m'/>
+        </View>
+        <View style={{borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(.6),borderRadius:rp(3),marginRight:rp(1)}}>
+          <BodyText  text={data?.cond} size='m'/>
+        </View>
+        <View style={{borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(.6),borderRadius:rp(3),marginRight:rp(1)}}>
+          <BodyText  text={data?.pair} size='m'/>
+        </View>
+        </View>
+       </ScrollView>
        </View>
          {/* products */}
          <ScrollView showsVerticalScrollIndicator={false}>

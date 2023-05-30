@@ -11,7 +11,7 @@ import { Image } from 'react-native-elements';
 export default function FavouriteCard({func=()=>{}}) {
     const[fav,setfav]=React.useState(true)
   return (
-    <View  style={{width:"95%",marginHorizontal:"2.5%",backgroundColor:"#32353d",marginBottom:rp(2),display:"flex",flexDirection:"row",borderRadius:rp(2),
+    <View  style={{width:"98%",marginHorizontal:"1%",backgroundColor:"#32353d",marginBottom:rp(2),display:"flex",flexDirection:"row",borderRadius:rp(2),
     shadowColor: "#000000",
 shadowOffset: {
   width: 0,

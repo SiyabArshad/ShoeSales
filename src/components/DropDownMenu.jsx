@@ -11,8 +11,8 @@ export default function DropDownMenu({data,selectedfunc,val}) {
     const[open,setopen]=React.useState(false)
   return (
     <View>
-    <Pressable onPress={()=>setopen(!open)} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-     <Text style={{fontFamily:fonts.mregular,fontSize:rp(2.2)}}>{val}</Text>
+    <Pressable onPress={()=>setopen(!open)} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+     <Text style={{fontFamily:fonts.mregular,fontSize:rp(2)}}>{val}</Text>
      <EvilIcons name="chevron-down" size={24} color={colors.lightblack} />
     </Pressable>
 {
