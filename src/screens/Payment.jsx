@@ -39,12 +39,12 @@ export default function Payment({navigation,route}) {
    finally{
     setissubmit(true);
     setisload(false);
-    // navigation.navigate("home")
    }
   };
   
 const callbacksubmit=()=>{
     setissubmit(false)
+    navigation.navigate("homescreen")
 }
   return (
     <Screen>

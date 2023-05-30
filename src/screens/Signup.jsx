@@ -8,6 +8,7 @@ import MessageCard from '../components/MessageCard';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Terms from '../components/Terms';
+import CustomButton from '../components/CustomButton';
 const validationSchema = Yup.object().shape({
   name:Yup.string().required("Enter Name"),
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
@@ -26,7 +27,6 @@ export default function Signup({navigation}) {
           
           setError("Loggedin Successfully");
           settype(true);
-          navigation.navigate("home")
         } catch (error) {
           setError("Failed");
           settype(false);
@@ -39,6 +39,7 @@ export default function Signup({navigation}) {
       
     const callbacksubmit=()=>{
         setissubmit(false)
+        navigation.navigate("homescreen")
     }
     const callbackterms=()=>{
       setshowTerms(false)
@@ -50,13 +51,7 @@ export default function Signup({navigation}) {
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
       <Terms callshow={callbackterms} show={showTerms}/>
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
-     <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
-        
-     <Pressable  style={styles.btn}>
-     <IonicIcon name="arrow-back" size={24} color={colors.white} />
-     </Pressable>
-     </View>
-     <View style={{marginVertical:rp(5),marginHorizontal:rp(2)}}>
+     <View style={{marginTop:rp(8),marginHorizontal:rp(0)}}>
      <Text style={styles.text1}>
        {" "}Create Your {"\n"} Account :)
      </Text>
@@ -68,7 +63,7 @@ export default function Signup({navigation}) {
     >
        {({ handleChange, handleSubmit, values, errors }) => (
      <View style={{marginTop:rp(8),marginHorizontal:rp(2)}}>
-     <View style={{marginBottom:rp(7)}}>
+     <View style={{marginBottom:rp(5)}}>
         <Text style={styles.lable}>Name</Text>
         <TextInput 
          onChangeText={handleChange('name')}
@@ -77,7 +72,7 @@ export default function Signup({navigation}) {
         style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
       {errors.name && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.name}</Text>}
      </View>
-     <View style={{marginBottom:rp(7)}}>
+     <View style={{marginBottom:rp(5)}}>
         <Text style={styles.lable}>Email</Text>
         <TextInput 
          onChangeText={handleChange('email')}
@@ -86,7 +81,7 @@ export default function Signup({navigation}) {
         style={{marginTop:rp(1),borderBottomWidth:1,borderBottomColor:colors.black,paddingHorizontal:rp(1.2),paddingVertical:rp(.6),color:colors.black,fontFamily:fonts.mregular}}/>
       {errors.email && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.email}</Text>}
      </View>
-     <View style={{marginBottom:rp(7)}}>
+     <View style={{marginBottom:rp(5)}}>
         <Text style={styles.lable}>Password</Text>
         <TextInput secureTextEntry 
        onChangeText={handleChange('password')}
@@ -96,16 +91,7 @@ export default function Signup({navigation}) {
      {errors.password && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.password}</Text>}
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
-                <Pressable 
-                disabled={issubmit} 
-                onPress={handleSubmit} style={{backgroundColor:colors.primary,paddingHorizontal:rp(8),paddingVertical:rp(1),borderRadius:rp(3)}}>
-                   {
-                        isload?
-                        <ActivityIndicator size={30} color={colors.white}/>
-                        :
-                        <Text style={{color:colors.white,fontFamily:fonts.mbold,fontSize:rp(3),textTransform:"uppercase"}}>Sign up</Text>
-                    }
-                </Pressable>
+     <CustomButton func={handleSubmit}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"SIGN UP"}/>
                 <Pressable 
                 onPress={()=>navigation.navigate("login")}
                  style={{marginTop:rp(3)}}>
@@ -134,13 +120,13 @@ const styles=StyleSheet.create({
         justifyContent:"center",
     },
     btn:{
-        backgroundColor:colors.primary,
+        backgroundColor:colors.black,
         paddingHorizontal:5,
         paddingVertical:4,
         borderRadius:5
     },
     text1:{
-        color:colors.primary,
+        color:colors.black,
         fontFamily:fonts.mebold,
         fontSize:rp(5)
     },

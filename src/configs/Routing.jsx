@@ -17,11 +17,15 @@ const Stack = createNativeStackNavigator();
 
 export default function Routing() {
   return (
-        <Stack.Navigator initialRouteName={"homescreen"} screenOptions={{headerShown:false}}>
+        <Stack.Navigator initialRouteName={"signup"} screenOptions={{headerShown:false}}>
+        <Stack.Screen name={"signup"} component={Signup}/>
+        <Stack.Screen name={"login"} component={Login}/>
+        <Stack.Screen name={"forgot"} component={Forgot}/>
         <Stack.Screen name={"homescreen"} component={HomeScreen}/>
         <Stack.Screen name={"additem"} component={AddShoe}/>
         <Stack.Screen name={"payment"} component={Payment}/>
-        {/* <Stack.Screen name={"signup"} component={Signup}/>
+        {/* 
+        <Stack.Screen name={"signup"} component={Signup}/>
         <Stack.Screen name={"login"} component={Login}/>
         <Stack.Screen name={"forgot"} component={Forgot}/>
         <Stack.Screen name={"home"} component={TabNavigation}/>
