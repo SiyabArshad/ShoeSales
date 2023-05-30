@@ -34,7 +34,7 @@ export default function Home({data}) {
           <View style={{display:"flex",flexDirection:"row",flexWrap:"wrap",alignItems:"center",marginVertical:rp(1),marginHorizontal:rp(2),marginVertical:rp(1)}}>
           {
             [1,2,2,3,4,5,6,7,33,7,788].map((item,i)=>(
-              <ShoeCard func={()=>navigation.navigate("details")} key={i}/>
+              <ShoeCard func={()=>navigation.navigate("details",{data})} key={i}/>
             ))
           }
           </View>

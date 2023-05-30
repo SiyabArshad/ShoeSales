@@ -39,6 +39,18 @@ export default function HomeScreen({route}) {
     }
   
    }
+   const buyfunc=()=>{
+    setcsstatus(false)
+    if(afo==='')
+    {    
+        navigation.navigate("home",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus }})
+    }
+    else
+    {
+        navigation.navigate("home",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus }})
+    }
+  
+   }
   return (
     <Screen>
 
@@ -178,7 +190,7 @@ export default function HomeScreen({route}) {
             </View>
 
         </View>
-        <CustomButton func={()=>navigation.navigate("home",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
+        <CustomButton func={buyfunc} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
     </View>
     </Screen>
