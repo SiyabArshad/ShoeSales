@@ -17,8 +17,8 @@ import CustomButton from "../components/CustomButton"
 import { useRoute,useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen({route}) {
+    const {data}=route?.params
     const navigation=useNavigation()
-    const [csstatus,setcsstatus]=React.useState(false)
     const [afo,setafo]=React.useState("STANDAR")
     const [bar,setbar]=React.useState("")
     const [brand,setbrand]=React.useState("PONSETI")
@@ -28,42 +28,46 @@ export default function HomeScreen({route}) {
     const [cond,setcond]=React.useState("NEW")
   
    const sellfunc=()=>{
-    setcsstatus(true)
     if(afo==='')
     {    
-        navigation.navigate("additem",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus }})
+        navigation.navigate("additem",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus:data }})
     }
     else
     {
-        navigation.navigate("additem",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus }})
+        navigation.navigate("additem",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus:data }})
     }
   
    }
    const buyfunc=()=>{
-    setcsstatus(false)
     if(afo==='')
     {    
-        navigation.navigate("home",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus }})
+        navigation.navigate("home",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus:data }})
     }
     else
     {
-        navigation.navigate("home",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus }})
+        navigation.navigate("home",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus:data }})
     }
   
+   }
+   const handlefunc=()=>{
+    if(data)
+    {
+        sellfunc()
+    }
+    else
+    {
+        buyfunc()
+    }
    }
   return (
     <Screen>
     <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
-      <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:rp(1),marginBottom:rp(5)}}>
-            <View style={{display:"flex",flexDirection:"row",alignItems:"center",borderRadius:rp(1),borderWidth:1,borderColor:colors.black,padding:2}}>
-                <TouchableOpacity onPress={()=>setcsstatus(false)} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.black}}>
-                    <BodyText color={colors.white} text={"Buy"}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={sellfunc} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.white}}>
-                    <BodyText color={colors.black} text={"Sell"}/>
-                </TouchableOpacity>
-            </View>
-      </View>
+    <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginTop:rp(2),marginBottom:rp(5)}}>
+                 <Pressable onPress={()=>navigation.pop()} style={styles.center}>
+                 <Entypo name="chevron-left" size={24} color={colors.black}/>
+               </Pressable>
+              
+     </View>
       <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{marginBottom:rp(2)}}>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
@@ -181,7 +185,7 @@ export default function HomeScreen({route}) {
             </View>
 
         </View>
-        <CustomButton func={buyfunc} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
+        <CustomButton func={handlefunc} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
     </View>
     </Screen>

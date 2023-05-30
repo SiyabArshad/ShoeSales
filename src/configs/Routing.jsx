@@ -12,7 +12,7 @@ import Payment from '../screens/Payment';
 import AddPayment from '../screens/AddPayment';
 import AddShoe from '../screens/AddShoe';
 import HomeScreen from '../screens/HomeScreen';
-
+import StartScreen from '../screens/StartScreen';
 const Stack = createNativeStackNavigator();
 
 export default function Routing() {
@@ -21,7 +21,8 @@ export default function Routing() {
         <Stack.Screen name={"signup"} component={Signup}/>
         <Stack.Screen name={"login"} component={Login}/>
         <Stack.Screen name={"forgot"} component={Forgot}/>
-        <Stack.Screen name={"homescreen"} component={HomeScreen}/>
+        <Stack.Screen name={"homescreen"} component={StartScreen}/>
+        <Stack.Screen name={"startscreen"} component={HomeScreen}/>
         <Stack.Screen name={"additem"} component={AddShoe}/>
         <Stack.Screen name={"payment"} component={Payment}/>        
         <Stack.Screen name={"home"} component={TabNavigation}/>
