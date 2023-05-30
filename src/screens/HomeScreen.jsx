@@ -12,18 +12,19 @@ import Heading from '../components/Typography/Heading';
 import DropDownPicker from 'react-native-dropdown-picker';
 import RNPickerSelect from "react-native-picker-select";
 import { SelectList } from 'react-native-dropdown-select-list'
-
+import DropDownMenu from '../components/DropDownMenu';
 import CustomButton from "../components/CustomButton"
 export default function HomeScreen({navigation,route}) {
     const [csstatus,setcsstatus]=React.useState("buy")
-    const [afo,setafo]=React.useState("STANDAR")
-    const [bar,setbar]=React.useState("SMALL")
-    const [brand,setbrand]=React.useState("PONESTI")
+    const [afo,setafo]=React.useState("")
+    const [bar,setbar]=React.useState("")
+    const [brand,setbrand]=React.useState("PONSETI")
     const [color,setcolor]=React.useState("GRAY")
-    const [size,setsize]=React.useState("6-0")
+    const [size,setsize]=React.useState("Preemie 6-0")
     const [pair,setpair]=React.useState("PAIR")
     const [cond,setcond]=React.useState("NEW")
-    const [paypalname, setpaypalname] = React.useState("");
+    // const [paypalname, setpaypalname] = React.useState("");
+    // const [price,setprice]=React.useState("")
    
   return (
     <Screen>
@@ -34,16 +35,20 @@ export default function HomeScreen({navigation,route}) {
                 <TouchableOpacity onPress={()=>setcsstatus("buy")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='buy'?colors.black:colors.white}}>
                     <BodyText color={csstatus==='buy'?colors.white:colors.black} text={"Buy"}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>setcsstatus("seller")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='seller'?colors.black:colors.white}}>
-                    <BodyText color={csstatus==='seller'?colors.white:colors.black} text={"Seller"}/>
+                <TouchableOpacity onPress={()=>{
+                 setcsstatus("seller")
+                 navigation.navigate("additem",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})
+                 } } style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='seller'?colors.black:colors.white}}>
+                    <BodyText color={csstatus==='seller'?colors.white:colors.black} text={"Sell"}/>
                 </TouchableOpacity>
             </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{marginBottom:rp(2)}}>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
-                <BodyText text={"AFO"} h='h3'/>
-                <SelectList 
+                <BodyText text={"AFOs"} h='h3'/>
+                {/* <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setafo(val)} 
         data={[
@@ -53,11 +58,24 @@ export default function HomeScreen({navigation,route}) {
             
         ]} 
         save="value"
-    />
+    /> */}
+    <DropDownMenu
+            selectedfunc={(val)=>{
+                setbar("")
+                setafo(val)
+            }}
+            val={afo}
+            data={[
+            {key:"STANDAR",value:"STANDAR"},
+            {key:"TOE STIT",value:"TOE STIT(TS)"},
+            {key:"PLANTAR FLEXION",value:"PLANTAR FLEXION(PFS)"}
+            ,]} 
+            />
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"BAR"} h='h3'/>
-                <SelectList 
+                {/* <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setbar(val)} 
         data={[
@@ -66,15 +84,28 @@ export default function HomeScreen({navigation,route}) {
             
         ]} 
         save="value"
-    />
+    /> */}
+        <DropDownMenu
+            selectedfunc={(val)=>{
+                setafo("")
+                setbar(val)
+            }}
+            val={bar}
+            data={[
+                {key:"SMALL",value:"SMALL"},
+                {key:"NORMAL",value:"NORMAL"},
+                
+            ]} 
+            />
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"BRAND"} h='h3'/>
                 <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setbrand(val)} 
         data={[
-            {key:"PONESTI",value:"PONESTI"},
+            {key:"PONSETI",value:"PONSETI"},
             {key:"OTHER",value:"OTHER"},
             
         ]} 
@@ -85,6 +116,7 @@ export default function HomeScreen({navigation,route}) {
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"COLOR"} h='h3'/>
                 <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setcolor(val)} 
         data={[
@@ -100,11 +132,12 @@ export default function HomeScreen({navigation,route}) {
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"SIZE"} h='h3'/>
                 <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setsize(val)} 
         data={[
-            {key:"6-0",value:"000000"},
-            {key:"5-0",value:"00000"},
+            {key:"Preemie 6-0",value:"Preemie 6-0"},
+            {key:"Preemie 5-0",value:"Preemie 5-0"},
             {key:"0000",value:"0000"},
             {key:"000",value:"000"},
             {key:"00",value:"00"},
@@ -128,6 +161,7 @@ export default function HomeScreen({navigation,route}) {
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"PAIR"} h='h3'/>
                 <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setpair(val)} 
         data={[
@@ -142,6 +176,7 @@ export default function HomeScreen({navigation,route}) {
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
                 <SelectList 
+                dropdownStyles={{borderRadius:rp(.2)}}
                 boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
         setSelected={(val) => setcond(val)} 
         data={[
@@ -153,13 +188,18 @@ export default function HomeScreen({navigation,route}) {
         save="value"
     />
             </View>
+            {/* <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"PRICE"} h='h3'/>
+                <TextInput maxLength={4} keyboardType='number-pad' onChangeText={(e)=>setprice(e)} value={price} placeholderTextColor={colors.lightblack} placeholder='Price €' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"PAYPAL"} h='h3'/>
                 <TextInput onChangeText={(e)=>setpaypalname(e)} value={paypalname} placeholderTextColor={colors.lightblack} placeholder='Paypal username' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
-            </View>
+            </View> */}
         </View>
-        <CustomButton style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
+        <CustomButton func={()=>navigation.navigate("additem",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
     </View>
     </Screen>

@@ -6,7 +6,9 @@ import fonts from '../helpers/fonts';
 import Heading from "../components/Typography/Heading"
 import Screen from "../components/Screen"
 import AntIcon from "react-native-vector-icons/AntDesign"
+import Entypo from "react-native-vector-icons/Entypo"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+
 import { Avatar,Image } from 'react-native-elements'
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -19,6 +21,8 @@ import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
 
 export default function AddShoe({navigation,route}) {
+    const {data}=route.params
+    console.log(data)
     const [title, settitle] = React.useState('');
     const [desc,setdesc]=React.useState("")
     const [brand,setbrand]=React.useState("")
@@ -75,85 +79,28 @@ export default function AddShoe({navigation,route}) {
 
 return (
   <Screen> 
+      <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:rp(2),marginVertical:rp(2)}}>
+                 <Pressable onPress={()=>navigation.pop()} style={styles.center}>
+                 <Entypo name="chevron-left" size={24} color={colors.black}/>
+               </Pressable>
+              
+     </View>
      <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
      <ScrollView showsVerticalScrollIndicator={false}>
      <View style={{}}>
-        <Heading text={"Create Your Ad"} h='h3' style={{marginBottom:rp(2)}}/>
-        <TextInput  onChangeText={(e)=>settitle(e)} value={title} style={{marginBottom:rp(2),paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.5)}} placeholder='Enter Shoe Name'/>
-        <TextInput  onChangeText={(e)=>setbrand(e)} value={brand}  style={{marginBottom:rp(2),paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.5)}} placeholder='Enter Brand Name'/>
-        <TextInput keyboardType='number-pad'  onChangeText={(e)=>setprice(e)} value={price}  style={{marginBottom:rp(2),paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.5)}} placeholder='Enter Shoe Price'/>
-        <TextInput keyboardType='number-pad'  onChangeText={(e)=>setphone(e)} value={phone} maxLength={15}  style={{marginBottom:rp(2),paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.5)}} placeholder='Enter Phone Number'/>
+        <Heading text={"List an Item"} h='h3' style={{marginBottom:rp(2)}}/>
         <View style={{minHeight:100}}>
-<TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Shoe Details'/>
+<TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Notice'/>
 </View>
-<View style={{display:"flex",flexDirection:"row",alignContent:"center",marginBottom:rp(2)}}>
-    <Pressable onPress={()=>setgender("Men")} style={{backgroundColor:gender==="Men"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={gender==="Men"?colors.white:colors.primary} text={"Men"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setgender("Women")} style={{backgroundColor:gender==="Women"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={gender==="Women"?colors.white:colors.primary} text={"Women"} size='m'/>
-    </Pressable>
-</View>
-<View style={{display:"flex",flexDirection:"row",alignContent:"center",marginBottom:rp(2)}}>
-    <Pressable onPress={()=>setcondition("New")} style={{backgroundColor:condition==="New"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={condition==="New"?colors.white:colors.primary} text={"New"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setcondition("Used")} style={{backgroundColor:condition==="Used"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={condition==="Used"?colors.white:colors.primary} text={"Used"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setcondition("Like New")} style={{backgroundColor:condition==="Like New"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={condition==="Like New"?colors.white:colors.primary} text={"Like New"} size='m'/>
-    </Pressable>
-</View>
-<View style={{display:"flex",flexDirection:"row",alignContent:"center",marginBottom:rp(2)}}>
-    <Pressable onPress={()=>setpair("Pair")} style={{backgroundColor:pair==="Pair"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={pair==="Pair"?colors.white:colors.primary} text={"Pair"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setpair("Left")} style={{backgroundColor:pair==="Left"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={pair==="Left"?colors.white:colors.primary} text={"Left"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setpair("Right")} style={{backgroundColor:pair==="Right"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={pair==="Right"?colors.white:colors.primary} text={"Right"} size='m'/>
-    </Pressable>
-</View>
-<View style={{display:"flex",flexDirection:"row",alignContent:"center",marginBottom:rp(2)}}>
-    <Pressable onPress={()=>setshoecolor("Pink")} style={{backgroundColor:shoecolor==="Pink"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={shoecolor==="Pink"?colors.white:colors.primary} text={"Pink"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setshoecolor("Blue")} style={{backgroundColor:shoecolor==="Blue"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={shoecolor==="Blue"?colors.white:colors.primary} text={"Blue"} size='m'/>
-    </Pressable>
-    <Pressable onPress={()=>setshoecolor("Others")} style={{backgroundColor:shoecolor==="Others"?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={shoecolor==="Others"?colors.white:colors.primary} text={"Other"} size='m'/>
-    </Pressable>
-</View>
-<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-<View style={{display:"flex",flexDirection:"row",alignContent:"center",marginBottom:rp(2)}}>
-   {
-    gender==="Men"?
-    menShoeSizesEU.map((item,i)=>(
-        <Pressable key={i} onPress={()=>setshoesize(item)} style={{backgroundColor:shoesize===item?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={shoesize===item?colors.white:colors.primary} text={item} size='m'/>
-    </Pressable>
-    
-    ))
-    :
-    womenShoeSizesEU.map((item,i)=>(
-        <Pressable key={i} onPress={()=>setshoesize(item)} style={{backgroundColor:shoesize===item?colors.primary:colors.white,borderWidth:1,borderColor:colors.primary,paddingHorizontal:rp(2),paddingVertical:rp(.5),borderRadius:rp(.5),marginRight:rp(1)}}>
-        <BodyText style={{}} color={shoesize===item?colors.white:colors.primary} text={item} size='m'/>
-    </Pressable>
-    
-    ))
-   }
-</View>
-</ScrollView>
+
+
 <View style={{marginBottom:rp(2)}}>
-        <BodyText text={"Shoe Picture"} size='m' style={{marginVertical:rp(2)}}/>
-        <Pressable onPress={openImagePicker} style={{height:rp(30),borderWidth:1,borderRadius:rp(2),borderColor:colors.primary,borderStyle:'dashed',display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <BodyText text={"Picture"} size='m' style={{marginVertical:rp(2)}}/>
+        <Pressable onPress={openImagePicker} style={{height:rp(30),borderWidth:1,borderRadius:rp(2),borderColor:colors.black,borderStyle:'dashed',display:"flex",justifyContent:"center",alignItems:"center"}}>
         <AntIcon name="cloudupload" size={40} color={colors.lightblack} />
                <View style={{display:"flex",flexDirection:"row",marginTop:rp(2)}}>
                 <BodyText size='m' text={"Drop your files here or "} color={colors.lightblack}/>
-                <BodyText size='m' text={"Choose File"} color={colors.primary} style={{}} />
+                <BodyText size='m' text={"Choose File"} color={colors.black} style={{}} />
                 </View> 
                 <BodyText size='m' text={"upload file up to 10 mb"} color={colors.lightblack}/>
         </Pressable>
@@ -165,10 +112,44 @@ return (
     </Image>
 </View>
    }
-    <CustomButton func={()=>navigation.navigate("payment")} style={{backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Continue"}/>
+    <CustomButton  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Next"}/>
      </View>
       </ScrollView>
     </View>
     </Screen>
   )
 } 
+
+
+
+
+
+const styles=StyleSheet.create({
+    mncon:{
+        flex:1,
+        backgroundColor:colors.white
+    },
+    header:{
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        marginHorizontal:rp(2),
+        marginVertical:rp(2)
+    },
+    center:{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"
+    },
+    inp:{
+      flex:1,
+      paddingHorizontal:rp(2),
+      paddingVertical:rp(.7),
+      marginRight:rp(1),
+      borderWidth:1,
+      borderColor:colors.primary,
+      borderRadius:rp(1),
+      fontFamily:fonts.mregular
+    }
+})
