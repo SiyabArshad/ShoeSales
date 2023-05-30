@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import Terms from '../components/Terms';
 import CustomButton from '../components/CustomButton';
 import { useRoute,useNavigation } from '@react-navigation/native';
+import logoimage from "../../assets/images/logo.png"
 
 const validationSchema = Yup.object().shape({
   name:Yup.string().required("Enter Name"),
@@ -55,10 +56,11 @@ export default function Signup() {
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
       <Terms callshow={callbackterms} show={showTerms}/>
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
-     <View style={{marginTop:rp(8),marginHorizontal:rp(0)}}>
+     <View style={{marginTop:rp(8),marginHorizontal:rp(0),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
      <Text style={styles.text1}>
        {" "}Create Your {"\n"} Account :)
      </Text>
+     <Image source={logoimage} style={{height:100,width:200}}/>
      </View>
      <Formik
       initialValues={{ email: '', password: '' }}

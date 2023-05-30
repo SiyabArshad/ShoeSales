@@ -8,6 +8,7 @@ import MessageCard from '../components/MessageCard';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomButton from '../components/CustomButton';
+import logoimage from "../../assets/images/logo.png"
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
 });
@@ -48,10 +49,12 @@ export default function Forgot() {
         <IonicIcon name="arrow-back" size={24} color={colors.white} />
         </Pressable>
         </View>
-     <View style={{marginTop:rp(5),marginHorizontal:rp(0)}}>
+     <View style={{marginTop:rp(5),marginHorizontal:rp(0),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
      <Text style={styles.text1}>
        {" "}Forgot {"\n"} Password :)
      </Text>
+     <Image source={logoimage} style={{height:100,width:200}}/>
+     
      </View>
      <Formik
       initialValues={{ email: '', password: '' }}
@@ -111,5 +114,9 @@ const styles=StyleSheet.create({
         fontFamily:fonts.mregular,
         fontSize:rp(3.5),
         color:colors.textgrey
-    }
+    },
+    backgroundImage: {
+      flex: 1,
+      resizeMode: 'contain',
+    },
 })

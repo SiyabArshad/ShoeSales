@@ -9,6 +9,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomButton from '../components/CustomButton';
 import { useRoute,useNavigation } from '@react-navigation/native';
+import logoimage from "../../assets/images/logo.png"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
@@ -43,6 +44,7 @@ export default function Login() {
     }
   return (
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
+      
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
      <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
         
@@ -50,10 +52,11 @@ export default function Login() {
         <IonicIcon name="arrow-back" size={24} color={colors.white} />
         </Pressable>
         </View>
-     <View style={{marginTop:rp(5),marginHorizontal:rp(0)}}>
+     <View style={{marginTop:rp(5),marginHorizontal:rp(0),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
      <Text style={styles.text1}>
        {" "}Login {"\n"} Account :)
      </Text>
+     <Image source={logoimage} style={{height:100,width:200}}/>
      </View>
      <Formik
       initialValues={{ email: '', password: '' }}
