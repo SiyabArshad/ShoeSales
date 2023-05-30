@@ -23,16 +23,11 @@ import CustomButton from "../components/CustomButton"
 export default function AddShoe({navigation,route}) {
     const {data}=route.params
     console.log(data)
-    const [title, settitle] = React.useState('');
     const [desc,setdesc]=React.useState("")
-    const [brand,setbrand]=React.useState("")
-    const [shoecolor,setshoecolor]=React.useState("Others")
-    const [phone,setphone]=React.useState()
-    const [price,setprice]=React.useState()
-    const [shoesize,setshoesize]=React.useState(40)
-    const [gender,setgender]=React.useState("Men")
-    const [condition,setcondition]=React.useState("New")
-    const [pair,setpair]=React.useState("Pair")
+    const [paypalname, setpaypalname] = React.useState("");
+    const [price,setprice]=React.useState("")
+    const [country,setcountry]=React.useState("")
+
     const askForPermissions=async(permissions)=>{
         const result=await request(permissions)
         return result
@@ -89,6 +84,51 @@ return (
      <ScrollView showsVerticalScrollIndicator={false}>
      <View style={{}}>
         <Heading text={"List an Item"} h='h3' style={{marginBottom:rp(2)}}/>
+        <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"Brand"} h='h3'/>
+                <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+          {
+            data?.type==="afos"&&
+            <>
+              <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"PAIR"} h='h3'/>
+                <TextInput editable={false}  value={data?.pair} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"COLOR"} h='h3'/>
+                <TextInput editable={false}  value={data?.color} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            </>
+          }
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"SIZE"} h='h3'/>
+                <TextInput editable={false}  value={data?.size} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"CONDITION"} h='h3'/>
+                <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+        <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"PRICE"} h='h3'/>
+                <TextInput maxLength={4} keyboardType='number-pad' onChangeText={(e)=>setprice(e)} value={price} placeholderTextColor={colors.lightblack} placeholder='Price €' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"PAYPAL"} h='h3'/>
+                <TextInput onChangeText={(e)=>setpaypalname(e)} value={paypalname} placeholderTextColor={colors.lightblack} placeholder='Paypal username' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"COUNTRY"} h='h3'/>
+                <TextInput onChangeText={(e)=>setcountry(e)} value={country} placeholderTextColor={colors.lightblack} placeholder='Country' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
         <View style={{minHeight:100}}>
 <TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Notice'/>
 </View>

@@ -16,16 +16,26 @@ import DropDownMenu from '../components/DropDownMenu';
 import CustomButton from "../components/CustomButton"
 export default function HomeScreen({navigation,route}) {
     const [csstatus,setcsstatus]=React.useState("buy")
-    const [afo,setafo]=React.useState("")
+    const [afo,setafo]=React.useState("STANDAR")
     const [bar,setbar]=React.useState("")
     const [brand,setbrand]=React.useState("PONSETI")
     const [color,setcolor]=React.useState("GRAY")
     const [size,setsize]=React.useState("Preemie 6-0")
     const [pair,setpair]=React.useState("PAIR")
     const [cond,setcond]=React.useState("NEW")
-    // const [paypalname, setpaypalname] = React.useState("");
-    // const [price,setprice]=React.useState("")
-   
+  
+   const sellfunc=()=>{
+    setcsstatus("seller")
+    if(afo==='')
+    {    
+        navigation.navigate("additem",{data:{type:"bar",bar,brand,color,size,pair,cond,csstatus }})
+    }
+    else
+    {
+        navigation.navigate("additem",{data:{type:"afos",afo,brand,color,size,pair,cond,csstatus }})
+    }
+  
+   }
   return (
     <Screen>
 
@@ -35,10 +45,7 @@ export default function HomeScreen({navigation,route}) {
                 <TouchableOpacity onPress={()=>setcsstatus("buy")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='buy'?colors.black:colors.white}}>
                     <BodyText color={csstatus==='buy'?colors.white:colors.black} text={"Buy"}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{
-                 setcsstatus("seller")
-                 navigation.navigate("additem",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})
-                 } } style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='seller'?colors.black:colors.white}}>
+                <TouchableOpacity onPress={sellfunc} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='seller'?colors.black:colors.white}}>
                     <BodyText color={csstatus==='seller'?colors.white:colors.black} text={"Sell"}/>
                 </TouchableOpacity>
             </View>
@@ -47,18 +54,7 @@ export default function HomeScreen({navigation,route}) {
       <View style={{marginBottom:rp(2)}}>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"AFOs"} h='h3'/>
-                {/* <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
-        setSelected={(val) => setafo(val)} 
-        data={[
-            {key:"STANDAR",value:"STANDAR"},
-            {key:"TOE STIT",value:"TOE STIT(TS)"},
-            {key:"PLANTAR FLEXION",value:"PLANTAR FLEXION(PFS)"},
-            
-        ]} 
-        save="value"
-    /> */}
+          
     <DropDownMenu
             selectedfunc={(val)=>{
                 setbar("")
@@ -74,17 +70,6 @@ export default function HomeScreen({navigation,route}) {
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"BAR"} h='h3'/>
-                {/* <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(1)}}
-        setSelected={(val) => setbar(val)} 
-        data={[
-            {key:"SMALL",value:"SMALL"},
-            {key:"NORMAL",value:"NORMAL"},
-            
-        ]} 
-        save="value"
-    /> */}
         <DropDownMenu
             selectedfunc={(val)=>{
                 setafo("")
@@ -188,16 +173,7 @@ export default function HomeScreen({navigation,route}) {
         save="value"
     />
             </View>
-            {/* <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
-                <BodyText text={"PRICE"} h='h3'/>
-                <TextInput maxLength={4} keyboardType='number-pad' onChangeText={(e)=>setprice(e)} value={price} placeholderTextColor={colors.lightblack} placeholder='Price €' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-                 </TextInput>
-            </View>
-            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
-                <BodyText text={"PAYPAL"} h='h3'/>
-                <TextInput onChangeText={(e)=>setpaypalname(e)} value={paypalname} placeholderTextColor={colors.lightblack} placeholder='Paypal username' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-                 </TextInput>
-            </View> */}
+
         </View>
         <CustomButton func={()=>navigation.navigate("additem",{data:{afo,bar,brand,color,size,pair,cond,csstatus }})} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
