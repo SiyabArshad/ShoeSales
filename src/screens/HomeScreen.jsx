@@ -53,7 +53,6 @@ export default function HomeScreen({route}) {
    }
   return (
     <Screen>
-
     <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
       <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:rp(1),marginBottom:rp(5)}}>
             <View style={{display:"flex",flexDirection:"row",alignItems:"center",borderRadius:rp(1),borderWidth:1,borderColor:colors.black,padding:2}}>
@@ -68,8 +67,7 @@ export default function HomeScreen({route}) {
       <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{marginBottom:rp(2)}}>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
-                <BodyText text={"AFOs"} h='h3'/>
-          
+                <BodyText text={"AFO System"} h='h3'/>       
     <DropDownMenu
             selectedfunc={(val)=>{
                 setbar("")
@@ -100,41 +98,38 @@ export default function HomeScreen({route}) {
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"BRAND"} h='h3'/>
-                <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
-        setSelected={(val) => setbrand(val)} 
-        data={[
-            {key:"PONSETI",value:"PONSETI"},
-            {key:"OTHER",value:"OTHER"},
-            
-        ]} 
-        save="value"
-    />
+                
+<DropDownMenu
+            selectedfunc={(val)=>{
+                setbrand(val)
+            }}
+            val={brand}
+            data={[
+                {key:"PONSETI",value:"PONSETI"},
+                {key:"OTHER",value:"OTHER"},
+                
+            ]} 
+            />
             </View>    
 
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"COLOR"} h='h3'/>
-                <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
-        setSelected={(val) => setcolor(val)} 
-        data={[
-            {key:"GRAY",value:"GRAY"},
-            {key:"BLUE",value:"BLUE"},
-            {key:"PINK",value:"PINK"},
-            {key:"OTHER",value:"OTHER"},
-            
-        ]} 
-        save="value"
-    />
+<DropDownMenu
+            selectedfunc={(val) => setcolor(val)} 
+            data={[
+                {key:"GRAY",value:"GRAY"},
+                {key:"BLUE",value:"BLUE"},
+                {key:"PINK",value:"PINK"},
+                {key:"OTHER",value:"OTHER"},
+                
+            ]} 
+            val={color}
+            />
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"SIZE"} h='h3'/>
-                <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
-        setSelected={(val) => setsize(val)} 
+                <DropDownMenu
+            selectedfunc={(val) => setsize(val)} 
         data={[
             {key:"Preemie 6-0",value:"Preemie 6-0"},
             {key:"Preemie 5-0",value:"Preemie 5-0"},
@@ -155,37 +150,33 @@ export default function HomeScreen({route}) {
             {key:"11",value:"11"},
             {key:"12",value:"12"},
         ]} 
-        save="value"
+        val={size}
     />
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"PAIR"} h='h3'/>
-                <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
-        setSelected={(val) => setpair(val)} 
+                <DropDownMenu
+        selectedfunc={(val) => setpair(val)} 
         data={[
             {key:"PAIR",value:"PAIR"},
             {key:"LEFT",value:"LEFT"},
             {key:"RIGHT",value:"RIGHT"}
             
         ]} 
-        save="value"
+        val={pair}
     />
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
-                <SelectList 
-                dropdownStyles={{borderRadius:rp(.2)}}
-                boxStyles={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5)}}
-        setSelected={(val) => setcond(val)} 
+                <DropDownMenu
+             selectedfunc={(val) => setcond(val)} 
         data={[
             {key:"NEW",value:"NEW"},
             {key:"LIKE NEW",value:"LIKE NEW"},
             {key:"USED",value:"USED"}
             
         ]} 
-        save="value"
+        val={cond}
     />
             </View>
 
