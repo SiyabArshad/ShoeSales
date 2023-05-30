@@ -42,11 +42,11 @@ export default function HomeScreen({navigation,route}) {
     <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
       <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:rp(1),marginBottom:rp(5)}}>
             <View style={{display:"flex",flexDirection:"row",alignItems:"center",borderRadius:rp(1),borderWidth:1,borderColor:colors.black,padding:2}}>
-                <TouchableOpacity onPress={()=>setcsstatus("buy")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='buy'?colors.black:colors.white}}>
-                    <BodyText color={csstatus==='buy'?colors.white:colors.black} text={"Buy"}/>
+                <TouchableOpacity onPress={()=>setcsstatus("buy")} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.black}}>
+                    <BodyText color={colors.white} text={"Buy"}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={sellfunc} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:csstatus==='seller'?colors.black:colors.white}}>
-                    <BodyText color={csstatus==='seller'?colors.white:colors.black} text={"Sell"}/>
+                <TouchableOpacity onPress={sellfunc} style={{...styles.center,borderRadius:rp(1),paddingHorizontal:rp(5),paddingVertical:rp(.8),backgroundColor:colors.white}}>
+                    <BodyText color={colors.black} text={"Sell"}/>
                 </TouchableOpacity>
             </View>
       </View>

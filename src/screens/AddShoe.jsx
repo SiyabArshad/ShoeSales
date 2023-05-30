@@ -22,7 +22,6 @@ import CustomButton from "../components/CustomButton"
 
 export default function AddShoe({navigation,route}) {
     const {data}=route.params
-    console.log(data)
     const [desc,setdesc]=React.useState("")
     const [paypalname, setpaypalname] = React.useState("");
     const [price,setprice]=React.useState("")
@@ -152,7 +151,7 @@ return (
     </Image>
 </View>
    }
-    <CustomButton  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Next"}/>
+    <CustomButton func={()=>navigation.navigate("payment",{data:{...data,paypalname,price,country}})}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Next"}/>
      </View>
       </ScrollView>
     </View>

@@ -19,102 +19,66 @@ import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
 
 export default function Payment({navigation,route}) {
-  const [method,setmethod]=React.useState("card")
-  const [cardNumber, setCardNumber] = React.useState('');
-  const [cvc, setcvc] = React.useState('');
-  const [monthyear,setmonthyear]=React.useState()
+  const {data}=route.params
+  const [method,setmethod]=React.useState("paypal")
+  const [isload,setisload]=React.useState(false)
+  const [issubmit,setissubmit]=React.useState(false)
+  const [Error,setError]=React.useState('')
+  const [type,settype]=React.useState(false)
+  console.log(data)
+  const handleSubmit = async () => {
+    setisload(true);
+    try {
+      
+      setError("Payment Successfull");
+      settype(true);
+    } catch (error) {
+      setError("Failed");
+      settype(false);
+    }
+   finally{
+    setissubmit(true);
+    setisload(false);
+    // navigation.navigate("home")
+   }
+  };
   
-  const handleCardNumberChange = (value) => {
-    // Remove any non-digit characters from the input
-    const cleanedValue = value.replace(/\D/g, '');
-
-    // Split the cleaned value into groups of 4 digits
-    const cardNumberGroups = cleanedValue.match(/.{1,4}/g) || [];
-
-    // Join the groups with a space between each group
-    const formattedCardNumber = cardNumberGroups.join(' ');
-
-    // Update the state with the formatted card number
-    setCardNumber(formattedCardNumber);
-  };
-  const handleCvcChange = (value) => {
-    const cleanedValue = value.replace(/\D/g, '');
-    setcvc(cleanedValue);
-  };
-  const handleExpiryChange = (value) => {
-    const cleanedValue = value.replace(/\D/g, '');
-    const expiryGroups = cleanedValue.match(/.{1,2}/g) || [];
-    const formattedExpiry = expiryGroups.join('/');
-    setmonthyear(formattedExpiry);
-  };
+const callbacksubmit=()=>{
+    setissubmit(false)
+}
   return (
     <Screen>
+       <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
        <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:rp(2),marginVertical:rp(2)}}>
                  <Pressable onPress={()=>navigation.pop()} style={styles.center}>
-                 <Entypo name="chevron-left" size={24} color={colors.primary}/>
+                 <Entypo name="chevron-left" size={24} color={colors.black}/>
                </Pressable>
      </View>
     <View style={{marginHorizontal:rp(2),flex:1}}>
       
     <View style={{marginVertical:rp(3)}}>
-      <Heading color={colors.primary} text={"Payment Methods"} h='h3'/>
+      <Heading color={colors.black} text={"Payment Methods"} h='h3'/>
       <View style={{marginTop:rp(2)}}>
         <View  style={{display:"flex",flexDirection:"row",alignItems:"center",marginBottom:rp(2)}}>
-          <TouchableOpacity onPress={()=>setmethod("visa")} style={{height:14,width:14,borderRadius:7,borderWidth:1,borderColor:colors.primary,backgroundColor:method==="visa"?colors.primary:colors.white,marginRight:rp(2)}}/>
-          <BodyText size='m' text={"Visa Master Card"}/>
-        </View>
-        <View  style={{display:"flex",flexDirection:"row",alignItems:"center",marginBottom:rp(2)}}>
-          <TouchableOpacity onPress={()=>setmethod("paypal")} style={{height:14,width:14,borderRadius:7,borderWidth:1,borderColor:colors.primary,backgroundColor:method==="paypal"?colors.primary:colors.white,marginRight:rp(2)}}/>
+          <TouchableOpacity onPress={()=>setmethod("paypal")} style={{height:14,width:14,borderRadius:7,borderWidth:1,borderColor:colors.black,backgroundColor:method==="paypal"?colors.black:colors.white,marginRight:rp(2)}}/>
           <BodyText size='m' text={"Paypal"}/>
         </View>
-        <View  style={{display:"flex",flexDirection:"row",alignItems:"center",marginBottom:rp(2)}}>
-          <TouchableOpacity onPress={()=>setmethod("revolt")} style={{height:14,width:14,borderRadius:7,borderWidth:1,borderColor:colors.primary,backgroundColor:method==="revolt"?colors.primary:colors.white,marginRight:rp(2)}}/>
-          <BodyText size='m' text={"Revolt"}/>
-        </View>
       </View>
     </View>
+    <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"User name"} h='h3'/>
+                <TextInput editable={false}  value={data?.paypalname} style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
     <View style={{marginBottom:rp(2)}}>
       <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginBottom:rp(2)}}>
-        <Heading color={colors.primary} h='h4' text={"Amount"}/>
-        <BodyText text={"€  5"}/>
+        <Heading color={colors.black} h='h4' text={"Item Fee"}/>
+        <BodyText text={"€  10"}/>
       </View>
-      {
-        method==="visa"&&<View style={{marginBottom:rp(3)}}>
-        <Heading text={"Card Number"} h='h4'/>
-        <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginTop:rp(1),paddingVertical:rp(1.4)}}>
-             <TextInput
-        keyboardType="numeric"
-        maxLength={19}
-        placeholder="2321 3456 2123 4564"
-        value={cardNumber}
-        onChangeText={handleCardNumberChange}
-        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
-      />
-        </View>
-        <View style={{display:"flex",flexDirection:"row",alignItems:"center",marginTop:rp(1),paddingVertical:rp(1.4)}}>
-       
-          <TextInput
-        keyboardType="numeric"
-        maxLength={5}
-        placeholder="MM/YY"
-        value={monthyear}
-        onChangeText={handleExpiryChange}
-        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(3)}}
-      />
-          <TextInput
-        keyboardType="numeric"
-        maxLength={3}
-        placeholder="cvc"
-        value={cvc}
-        onChangeText={handleCvcChange}
-        style={{fontSize:rp(2.5),borderBottomWidth:1,borderBottomColor:colors.black,paddingVertical:rp(1.7),paddingHorizontal:rp(1.2),marginRight:rp(1)}}
-      />
-        </View>
-      </View>
-      }
+   
     </View>
 
-    <CustomButton style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.primary,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Pay Now"}/>
+    <CustomButton func={handleSubmit} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Pay Now"}/>
     </View>
     </Screen>
   )
