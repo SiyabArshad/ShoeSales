@@ -33,7 +33,7 @@ export default function TabNavigation({route}) {
         alignItems:"center",
         justifyContent:"center",
         minHeight:50,
-        paddingVertical:RFPercentage(2)
+        // paddingVertical:RFPercentage(2)
          }
     })}
   >
