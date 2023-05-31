@@ -90,9 +90,9 @@ export default function HomeScreen({route}) {
         <DropDownMenu
             selectedfunc={(val)=>{
                 setafo("")
-                setcolor("")
-                setsize("")
-                setpair("")
+                // setcolor("")
+                // setsize("")
+                // setpair("")
                 setbar(val)
             }}
             val={bar}
@@ -120,7 +120,9 @@ export default function HomeScreen({route}) {
             />
             </View>    
 
-            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+            {
+                !bar&&<>
+                <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"COLOR"} h='h3'/>
 <DropDownMenu
             selectedfunc={(val) => setcolor(val)} 
@@ -181,6 +183,8 @@ export default function HomeScreen({route}) {
         val={pair}
     />
             </View>
+                </>
+            }
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
                 <DropDownMenu
