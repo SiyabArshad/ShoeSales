@@ -35,8 +35,23 @@ export default function ShoeDetail({route}) {
         </View>
         <View style={{width:"50%",paddingHorizontal:rp(2)}}>
         <Heading h='h5' text={"Product id #6767467"} color={colors.black} style={{marginLeft:rp(.5),marginBottom:rp(1)}}/> 
-            <BodyText text={data?.brand?data.brand:"Nike"} color={colors.lightblack} style={{marginLeft:rp(.5)}}/>
-            <Heading h='h3' text={data?.type==="afos"?data?.afo:data?.bar} style={{marginLeft:rp(.5),marginVertical:rp(1)}}/>
+            {/* <BodyText text={data?.brand?data.brand:"Nike"} color={colors.lightblack} style={{marginLeft:rp(.5)}}/> */}
+            {/* <Heading h='h3' text={data?.type==="afos"?data?.afo:data?.bar} style={{marginLeft:rp(.5),marginVertical:rp(1)}}/> */}
+            
+            <View style={{marginBottom:rp(1),marginLeft:rp(.5)}}>
+            <BodyText text={data?.type} color={colors.lightblack} style={{marginBottom:rp(.5),textTransform:"uppercase"}}/>
+            <Heading h='h4' text={data?.type==="afos"?data?.afo:data?.bar} />
+            </View>
+            <View style={{marginBottom:rp(1),marginLeft:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+            <View>
+            <BodyText text={"Brand"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
+            <Heading h='h4' text={data?.brand?data.brand:"Nike"} />
+            </View>
+            <View>
+            <BodyText text={"Pair"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
+            <Heading h='h4' text={data?.pair?data.pair:"LEFT"} />
+            </View>
+            </View>
             <View style={{marginBottom:rp(1),marginLeft:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
             <View>
             <BodyText text={"Price"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
