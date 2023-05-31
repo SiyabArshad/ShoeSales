@@ -28,7 +28,7 @@ export default function StartScreen({route}) {
     <Screen>
     <View style={{flex:1,marginHorizontal:rp(2),marginVertical:rp(2)}}>
       <BodyText text={"Welcome Jhones"} h='h2' style={{marginBottom:rp(2),marginTop:rp(1)}}/>
-      <Heading h='h1' text={"What You want to buy today?"} style={{fontSize:rp(6),width:"90%",marginVertical:rp(2)}} />
+      <Heading h='h5' text={"What do you want to do today?"} style={{fontSize:rp(5),textAlign:"center",marginVertical:rp(2)}} />
         <View style={{display:'flex',flexDirection:"row",alignItems:'center',justifyContent:"center",marginVertical:rp(2)}}>
             <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:false})} style={{backgroundColor:colors.black,paddingHorizontal:rp(3),paddingVertical:rp(1),borderRadius:rp(.5)}}>
                 <BodyText text={"Buy"} color={colors.white}/>
@@ -40,10 +40,10 @@ export default function StartScreen({route}) {
         <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginVertical:rp(2)}}>
            <View style={{padding:1,display:"flex",flexDirection:"row",alignItems:'center',borderWidth:1,borderColor:colors.black,borderRadius:rp(1)}}>
            <TouchableOpacity onPress={()=>settab(0)} style={{paddingHorizontal:rp(3),paddingVertical:rp(1.3),backgroundColor:tab===0?colors.black:colors.white,borderRadius:rp(1)}}>
-                <BodyText color={tab===0?colors.white:colors.black} text={"Your Products"} size='m'/>
+                <BodyText color={tab===0?colors.white:colors.black} text={"Your Products"} size='m' style={{textAlign:"center",fontSize:rp(2.1)}}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>settab(1)} style={{paddingHorizontal:rp(3),paddingVertical:rp(1),backgroundColor:tab===1?colors.black:colors.white,borderRadius:rp(1)}}>
-            <BodyText color={tab===1?colors.white:colors.black} text={"Notifications"} size='m'/>
+            <BodyText color={tab===1?colors.white:colors.black} text={"Notifications"} style={{textAlign:"center",fontSize:rp(2.1)}} size='m'/>
             </TouchableOpacity>
            </View>
         </View>
