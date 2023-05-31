@@ -51,14 +51,44 @@ const callbacksubmit=()=>{
   return (
     <Screen>
        <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
+       <ScrollView showsVerticalScrollIndicator={false}>
        <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:rp(2),marginVertical:rp(2)}}>
                  <Pressable onPress={()=>navigation.pop()} style={styles.center}>
                  <Entypo name="chevron-left" size={24} color={colors.black}/>
                </Pressable>
      </View>
     <View style={{marginHorizontal:rp(2),flex:1}}>
-      
-    <View style={{marginVertical:rp(3)}}>
+    <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+                <BodyText text={"Brand"} h='h3'/>
+                <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+    </View>
+    {
+            data?.type==="afos"&&
+            <>
+              <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+                <BodyText text={"PAIR"} h='h3'/>
+                <TextInput editable={false}  value={data?.pair} style={{color:colors.lightblack,width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+                <BodyText text={"COLOR"} h='h3'/>
+                <TextInput editable={false}  value={data?.color} style={{color:colors.lightblack,width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            </>
+          }
+          <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+                <BodyText text={"SIZE"} h='h3'/>
+                <TextInput editable={false}  value={data?.size} style={{color:colors.lightblack,fontFamily:fonts.mitalic, width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+                <BodyText text={"CONDITION"} h='h3'/>
+                <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+    <View style={{marginVertical:rp(2)}}>
       <Heading color={colors.black} text={"Payment Methods"} h='h3'/>
       <View style={{marginTop:rp(2)}}>
         <View  style={{display:"flex",flexDirection:"row",alignItems:"center",marginBottom:rp(2)}}>
@@ -95,6 +125,7 @@ const callbacksubmit=()=>{
     <CustomButton func={handleSubmit} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Pay Now"}/>
 
     </View>
+    </ScrollView>
     </Screen>
   )
 }
