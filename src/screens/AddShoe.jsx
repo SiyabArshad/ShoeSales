@@ -8,7 +8,7 @@ import Screen from "../components/Screen"
 import AntIcon from "react-native-vector-icons/AntDesign"
 import Entypo from "react-native-vector-icons/Entypo"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
-
+import axios from 'axios';
 import { Avatar,Image } from 'react-native-elements'
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -20,7 +20,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {request,PERMISSIONS} from "react-native-permissions"
 import CustomButton from "../components/CustomButton"
 import { useRoute,useNavigation } from '@react-navigation/native';
-
+import CountryDropDown from "../components/CountryDropDown"
 export default function AddShoe({route}) {
     const navigation=useNavigation()
   
@@ -73,9 +73,35 @@ export default function AddShoe({route}) {
         }
       
     };
-
+    const[countries,setcountries]=React.useState([])
+    const [load,setload]=React.useState(false)
+    const getconlist=async()=>{
+        setload(true)
+            const options = {
+                method: 'GET',
+                url: 'https://country-list5.p.rapidapi.com/countrylist/',
+                headers: {
+                  'X-RapidAPI-Key': '89d9015bd8msh1a942f0cc8a330bp1f90fcjsn2d4ba612063c',
+                  'X-RapidAPI-Host': 'country-list5.p.rapidapi.com'
+                }
+              };
+              
+              try {
+                const response = await axios.request(options);
+                setcountries(response.data?.country)
+            } catch (error) {
+                console.error(error);
+            }
+        finally{
+            setload(false)
+        }
+    }
+React.useEffect(()=>{
+    getconlist()
+},[])
 return (
   <Screen> 
+    <Loading visible={load}/>
       <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:rp(2),marginVertical:rp(2)}}>
                  <Pressable onPress={()=>navigation.pop()} style={styles.center}>
                  <Entypo name="chevron-left" size={24} color={colors.black}/>
@@ -128,8 +154,13 @@ return (
             </View>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"COUNTRY"} h='h3'/>
-                <TextInput onChangeText={(e)=>setcountry(e)} value={country} placeholderTextColor={colors.lightblack} placeholder='Country' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-                 </TextInput>
+                {/* <TextInput onChangeText={(e)=>setcountry(e)} value={country} placeholderTextColor={colors.lightblack} placeholder='Country' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput> */}
+                   <CountryDropDown
+        selectedfunc={(val) => setcountry(val)} 
+        data={countries} 
+        val={country}
+    />
             </View>
         <View style={{minHeight:100}}>
 <TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Notice'/>
