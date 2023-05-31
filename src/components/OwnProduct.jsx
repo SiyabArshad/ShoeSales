@@ -31,7 +31,7 @@ elevation: 4
           </TouchableOpacity>
         </View>
         <View style={{marginLeft:rp(1)}}>
-        <Heading color={colors.white} text={"From € 300"} h='h4'/>
+        <Heading color={colors.white} text={"Price € 300"} h='h4'/>
         </View>
      </View>
     </View>
