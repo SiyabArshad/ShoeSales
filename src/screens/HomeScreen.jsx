@@ -90,12 +90,16 @@ export default function HomeScreen({route}) {
         <DropDownMenu
             selectedfunc={(val)=>{
                 setafo("")
+                setcolor("")
+                setsize("")
+                setpair("")
                 setbar(val)
             }}
             val={bar}
             data={[
-                {key:"SMALL",value:"SMALL"},
-                {key:"NORMAL",value:"NORMAL"},
+                {key:"ABDUCTION BAR",value:"ABDUCTION BAR"}
+                // {key:"SMALL",value:"SMALL"},
+                // {key:"NORMAL",value:"NORMAL"},
                 
             ]} 
             />
@@ -120,13 +124,15 @@ export default function HomeScreen({route}) {
                 <BodyText text={"COLOR"} h='h3'/>
 <DropDownMenu
             selectedfunc={(val) => setcolor(val)} 
-            data={[
+            data={
+             bar?[]:   [
                 {key:"GRAY",value:"GRAY"},
                 {key:"BLUE",value:"BLUE"},
                 {key:"PINK",value:"PINK"},
                 {key:"OTHER",value:"OTHER"},
                 
-            ]} 
+            ]
+        } 
             val={color}
             />
             </View>
@@ -134,7 +140,11 @@ export default function HomeScreen({route}) {
                 <BodyText text={"SIZE"} h='h3'/>
                 <DropDownMenu
             selectedfunc={(val) => setsize(val)} 
-        data={[
+        data={
+            bar?[]: [
+            {key:"Extra Short",value:"Extra Short"},
+            {key:"Short",value:"Short"},
+            {key:"Long",value:"Long"},
             {key:"Preemie 6-0",value:"Preemie 6-0"},
             {key:"Preemie 5-0",value:"Preemie 5-0"},
             {key:"0000",value:"0000"},
@@ -161,7 +171,8 @@ export default function HomeScreen({route}) {
                 <BodyText text={"PAIR"} h='h3'/>
                 <DropDownMenu
         selectedfunc={(val) => setpair(val)} 
-        data={[
+        data={
+            bar?[]: [
             {key:"PAIR",value:"PAIR"},
             {key:"LEFT",value:"LEFT"},
             {key:"RIGHT",value:"RIGHT"}
