@@ -9,7 +9,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomButton from '../components/CustomButton';
 import { useRoute,useNavigation } from '@react-navigation/native';
-import logoimage from "../../assets/images/logo.png"
+import logoimage from "../../assets/images/newlogo.png"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),

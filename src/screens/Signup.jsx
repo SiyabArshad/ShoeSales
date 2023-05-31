@@ -10,7 +10,7 @@ import * as Yup from 'yup';
 import Terms from '../components/Terms';
 import CustomButton from '../components/CustomButton';
 import { useRoute,useNavigation } from '@react-navigation/native';
-import logoimage from "../../assets/images/logo.png"
+import logoimage from "../../assets/images/newlogo.png"
 
 const validationSchema = Yup.object().shape({
   name:Yup.string().required("Enter Name"),
