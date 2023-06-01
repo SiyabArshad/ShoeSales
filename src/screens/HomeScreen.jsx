@@ -61,13 +61,13 @@ export default function HomeScreen({route}) {
    }
   return (
     <Screen>
-    <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
-    <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginTop:rp(2),marginBottom:rp(5)}}>
+    <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginTop:rp(2),marginBottom:rp(2),paddingHorizontal:rp(2)}}>
                  <Pressable onPress={()=>navigation.pop()} style={styles.center}>
                  <Entypo name="chevron-left" size={24} color={colors.black}/>
                </Pressable>
               
      </View>
+    <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2),flexDirection:"column",justifyContent:"space-between"}}>
       <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{marginBottom:rp(2)}}>
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
@@ -185,6 +185,39 @@ export default function HomeScreen({route}) {
             </View>
                 </>
             }
+            {
+                bar&&<View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"SIZE"} h='h3'/>
+                <DropDownMenu
+            selectedfunc={(val) => setsize(val)} 
+        data={
+            bar?[]: [
+            {key:"Extra Short",value:"Extra Short"},
+            {key:"Short",value:"Short"},
+            {key:"Long",value:"Long"},
+            {key:"Preemie 6-0",value:"Preemie 6-0"},
+            {key:"Preemie 5-0",value:"Preemie 5-0"},
+            {key:"0000",value:"0000"},
+            {key:"000",value:"000"},
+            {key:"00",value:"00"},
+            {key:"0",value:"0"},
+            {key:"1",value:"1"},
+            {key:"2",value:"2"},
+            {key:"3",value:"3"},
+            {key:"4",value:"4"},
+            {key:"5",value:"5"},
+            {key:"6",value:"6"},
+            {key:"7",value:"7"},
+            {key:"8",value:"8"},
+            {key:"9",value:"9"},
+            {key:"10",value:"10"},
+            {key:"11",value:"11"},
+            {key:"12",value:"12"},
+        ]} 
+        val={size}
+    />
+            </View>
+            }
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
                 <DropDownMenu
@@ -200,8 +233,9 @@ export default function HomeScreen({route}) {
             </View>
 
         </View>
-        <CustomButton func={handlefunc} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
       </ScrollView>
+      <CustomButton func={handlefunc} style={{marginTop:rp(2),marginBottom:rp(5),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,fontFamily:fonts.msemibold}} text={"NEXT"}/>
+     
     </View>
     </Screen>
   )

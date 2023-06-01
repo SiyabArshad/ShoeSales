@@ -58,7 +58,7 @@ const callbacksubmit=()=>{
                </Pressable>
      </View>
     <View style={{marginHorizontal:rp(2),flex:1}}>
-    <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+    <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginBottom:rp(1.5)}}>
                 <BodyText text={"Brand"} h='h3'/>
                 <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
@@ -66,24 +66,24 @@ const callbacksubmit=()=>{
     {
             data?.type==="afos"&&
             <>
-              <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+              <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginBottom:rp(1.5)}}>
                 <BodyText text={"PAIR"} h='h3'/>
                 <TextInput editable={false}  value={data?.pair} style={{color:colors.lightblack,width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
-            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginBottom:rp(1.5)}}>
                 <BodyText text={"COLOR"} h='h3'/>
                 <TextInput editable={false}  value={data?.color} style={{color:colors.lightblack,width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
             </>
           }
-          <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+          <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginBottom:rp(1.5)}}>
                 <BodyText text={"SIZE"} h='h3'/>
                 <TextInput editable={false}  value={data?.size} style={{color:colors.lightblack,fontFamily:fonts.mitalic, width:200,height:32,borderRadius:rp(.3),paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
-            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(1.5)}}>
+            <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginBottom:rp(1.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
                 <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>

@@ -15,7 +15,7 @@ export default function DropDownMenu({ data, selectedfunc, val }) {
     const toValue = open ? 0 : 150;
     Animated.timing(animatedHeight, {
       toValue,
-      duration: 500,
+      duration: 200,
       useNativeDriver: false,
     }).start(() => {
       setOpen(!open);

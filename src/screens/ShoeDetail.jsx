@@ -53,13 +53,14 @@ export default function ShoeDetail({route}) {
             </View>
             </View>
             <View style={{marginBottom:rp(1),marginLeft:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-            <View>
-            <BodyText text={"Price"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
-            <Heading h='h4' text={`€ ${data?.price?data.price:"200"}`} />
-            </View>
+           
             <View>
             <BodyText text={"Color"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
             <Heading h='h4' text={data?.color?data.color:"Grey"} />
+            </View>
+            <View>
+            <BodyText text={"Price"} color={colors.lightblack} style={{marginBottom:rp(.5)}}/>
+            <Heading h='h4' text={`€ ${data?.price?data.price:"200"}`} />
             </View>
             </View>
             <View style={{marginBottom:rp(1),marginLeft:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>

@@ -30,14 +30,15 @@ export default function StartScreen({route}) {
       <BodyText text={"Welcome Jhones"} h='h2' style={{marginBottom:rp(2),marginTop:rp(1)}}/>
       <Heading h='h5' text={"What do you want to do today?"} style={{fontSize:rp(5),textAlign:"center",marginVertical:rp(2)}} />
         <View style={{display:'flex',flexDirection:"row",alignItems:'center',justifyContent:"center",marginVertical:rp(2)}}>
-            <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:false})} style={{backgroundColor:colors.black,paddingHorizontal:rp(3),paddingVertical:rp(1),borderRadius:rp(.5)}}>
-                <BodyText text={"Buy"} color={colors.white}/>
+            <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:false})} style={{backgroundColor:colors.grey,width:100,height:50,borderRadius:rp(5),display:"flex",alignItems:"center",justifyContent:"center"}}>
+                <Heading h='h3' text={"Buy"}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:true})} style={{marginLeft:rp(1),backgroundColor:colors.black,paddingHorizontal:rp(3),paddingVertical:rp(1),borderRadius:rp(.5)}}>
-                <BodyText text={"Sell"} color={colors.white}/>
+                  <Heading text={"or"} style={{marginHorizontal:rp(2)}} h='h2'/>
+                <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:true})}  style={{backgroundColor:colors.grey,width:100,height:50,borderRadius:rp(5),display:"flex",alignItems:"center",justifyContent:"center"}}>
+                <Heading h='h3' text={"Sell"} />
                 </TouchableOpacity>
         </View>
-        <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginVertical:rp(2)}}>
+        <View style={{display:"flex",alignItems:"center",justifyContent:"center",marginVertical:rp(2),marginLeft:rp(1)}}>
            <View style={{padding:1,display:"flex",flexDirection:"row",alignItems:'center',borderWidth:1,borderColor:colors.black,borderRadius:rp(1)}}>
            <TouchableOpacity onPress={()=>settab(0)} style={{paddingHorizontal:rp(3),paddingVertical:rp(1.3),backgroundColor:tab===0?colors.black:colors.white,borderRadius:rp(1)}}>
                 <BodyText color={tab===0?colors.white:colors.black} text={"Your Products"} size='m' style={{textAlign:"center",fontSize:rp(2.1)}}/>

@@ -31,27 +31,7 @@ export default function Notification() {
         </TouchableOpacity>
        </View>
        
-      </View>
-      <View style={{backgroundColor:colors.lightgrey,paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderRadius:rp(1),marginBottom:rp(1.5)}}>
-        <BodyText size='m' style={{marginBottom:rp(1)}} text={"@williams is selling Nike Air Jorden"}/>
-       <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-       <TouchableOpacity style={{backgroundColor:colors.green,paddingHorizontal:rp(2),paddingVertical:rp(.8),borderRadius:rp(3)}}>
-            <BodyText size='m' color={colors.white} text={"Go to Product"}/>
-        </TouchableOpacity>
-       </View>
-       
-      </View>
-      <View style={{backgroundColor:colors.lightgrey,paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderRadius:rp(1),marginBottom:rp(1.5)}}>
-        <BodyText size='m' style={{marginBottom:rp(1)}} text={"@Jones is Asking for Nike Air Jorden is Available"}/>
-       <View style={{display:"flex",flexDirection:"row",alignItems:"center"}}>
-       <TouchableOpacity style={{backgroundColor:colors.green,paddingHorizontal:rp(2),paddingVertical:rp(.8),borderRadius:rp(3)}}>
-            <BodyText size='m' color={colors.white} text={"Yes"}/>
-        </TouchableOpacity>
-        <TouchableOpacity style={{marginLeft:rp(1),backgroundColor:colors.danger,paddingHorizontal:rp(2),paddingVertical:rp(.8),borderRadius:rp(3)}}>
-            <BodyText size='m' color={colors.white} text={"No"}/>
-        </TouchableOpacity>
-       </View>
-       
+     
       </View>
     </View>
   )
