@@ -23,7 +23,7 @@ import { useRoute,useNavigation } from '@react-navigation/native';
 import CountryDropDown from "../components/CountryDropDown"
 export default function AddShoe({route}) {
     const navigation=useNavigation()
-  
+    const [showgide,setshowguide]=React.useState(false)
     const {data}=route.params
     const [desc,setdesc]=React.useState("")
     const [paypalname, setpaypalname] = React.useState("");
@@ -106,12 +106,21 @@ return (
                  <Pressable onPress={()=>navigation.pop()} style={styles.center}>
                  <Entypo name="chevron-left" size={24} color={colors.black}/>
                </Pressable>
-              
      </View>
      <View style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(2)}}>
      <ScrollView showsVerticalScrollIndicator={false}>
      <View style={{}}>
-        <Heading text={"List an Item"} h='h3' style={{marginBottom:rp(2)}}/>
+        <View style={{marginBottom:rp(2),display:"flex",flexDirection:"row",alignItems:"center"}}>
+        <Heading text={"List an Item"} h='h3' />
+        <TouchableOpacity onPress={()=>setshowguide(!showgide)} style={{marginLeft:rp(2)}}>
+        <Entypo name="info-with-circle" size={24} color="black" />
+        </TouchableOpacity>
+        </View>
+       {
+        showgide&& <View style={{width:"80%",minHeight:100,marginBottom:rp(2.5),backgroundColor:colors.white,borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(2),paddingVertical:rp(1.5),borderRadius:rp(1)}}>
+        <BodyText size='m' style={{width:"80%"}} text={"Hate speech, Phone, numbers, emails, links are not allowed in the description.Other wise the Ad will be deleted."}></BodyText>
+    </View>
+       }
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"Brand"} h='h3'/>
                 <TextInput editable={false}  value={data?.brand} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
@@ -163,7 +172,7 @@ return (
     />
             </View>
         <View style={{minHeight:100}}>
-<TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Notice'/>
+<TextInput onChangeText={(e)=>setdesc(e)} value={desc} multiline style={{flex:1,paddingHorizontal:rp(2),paddingVertical:rp(1.4),borderWidth:1,borderColor:colors.lightblack,borderRadius:rp(.6),color:colors.black,fontFamily:fonts.mregular,marginBottom:rp(2)}} placeholder='Enter Note'/>
 </View>
 
 
