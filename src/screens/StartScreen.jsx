@@ -33,7 +33,7 @@ export default function StartScreen({route}) {
             <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:false})} style={{backgroundColor:colors.grey,width:100,height:50,borderRadius:rp(5),display:"flex",alignItems:"center",justifyContent:"center"}}>
                 <Heading h='h3' text={"Buy"}/>
                 </TouchableOpacity>
-                  <Heading text={"or"} style={{marginHorizontal:rp(2)}} h='h2'/>
+                  {/* <Heading text={"or"} style={{marginHorizontal:rp(2)}} h='h2'/> */}
                 <TouchableOpacity onPress={()=>navigation.navigate("startscreen",{data:true})}  style={{backgroundColor:colors.grey,width:100,height:50,borderRadius:rp(5),display:"flex",alignItems:"center",justifyContent:"center"}}>
                 <Heading h='h3' text={"Sell"} />
                 </TouchableOpacity>
