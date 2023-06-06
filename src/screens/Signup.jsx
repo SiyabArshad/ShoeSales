@@ -30,7 +30,7 @@ export default function Signup() {
         setisload(true);
         try {
           
-          setError("Loggedin Successfully");
+          setError("Logged in Successfully");
           settype(true);
         } catch (error) {
           setError("Failed");
