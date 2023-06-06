@@ -96,9 +96,9 @@ export default function AddShoe({route}) {
             setload(false)
         }
     }
-// React.useEffect(()=>{
-//     getconlist()
-// },[])
+React.useEffect(()=>{
+    getconlist()
+},[])
 return (
   <Screen> 
     <Loading visible={load}/>

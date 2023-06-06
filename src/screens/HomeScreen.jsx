@@ -143,10 +143,11 @@ export default function HomeScreen({route}) {
                 <DropDownMenu
             selectedfunc={(val) => setsize(val)} 
         data={
-            bar?[]: [
-            {key:"Extra Short",value:"Extra Short"},
-            {key:"Short",value:"Short"},
-            {key:"Long",value:"Long"},
+            bar?[
+                {key:"Extra Short",value:"Extra Short"},
+                {key:"Short",value:"Short"},
+                {key:"Long",value:"Long"}
+            ]: [
             {key:"Preemie 6-0",value:"Preemie 6-0"},
             {key:"Preemie 5-0",value:"Preemie 5-0"},
             {key:"0000",value:"0000"},
@@ -191,10 +192,12 @@ export default function HomeScreen({route}) {
                 <DropDownMenu
             selectedfunc={(val) => setsize(val)} 
         data={
-            bar?[]: [
-            {key:"Extra Short",value:"Extra Short"},
+            bar?[
+                {key:"Extra Short",value:"Extra Short"},
             {key:"Short",value:"Short"},
             {key:"Long",value:"Long"},
+            ]: [
+            
             {key:"Preemie 6-0",value:"Preemie 6-0"},
             {key:"Preemie 5-0",value:"Preemie 5-0"},
             {key:"0000",value:"0000"},
