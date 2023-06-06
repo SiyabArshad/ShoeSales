@@ -77,7 +77,7 @@ export default function Setting({route,data}) {
         <BodyText  text={"Email"} size='s' style={{fontSize:rp(2.3),marginTop:rp(1.5)}} color={colors.lightblack}/>
         <BodyText text={"Jean@gmail.com"} style={{fontSize:rp(2.3),marginVertical:rp(1.2)}} />
      </View>
-     <CustomButton func={()=>navigation.navigate("chat",{data})} style={{backgroundColor:colors.primary,borderRadius:rp(5),marginBottom:rp(1)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Privacy Policy"}/>
+     <CustomButton  style={{backgroundColor:colors.primary,borderRadius:rp(5),marginBottom:rp(1)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Terms and Conditions"}/>
      <CustomButton style={{backgroundColor:colors.primary,borderRadius:rp(5),marginBottom:rp(1)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Delete Account"}/>
      <CustomButton func={()=>navigation.navigate("login")} style={{backgroundColor:colors.primary,borderRadius:rp(5),marginBottom:rp(1)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"Logout"}/>
    
