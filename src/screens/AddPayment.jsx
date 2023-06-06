@@ -32,7 +32,7 @@ export default function AddPayment({route}) {
     setisload(true);
     try {
       
-      setError("Payment Successfull");
+      setError("Payment Successful");
       settype(true);
     } catch (error) {
       setError("Failed");
