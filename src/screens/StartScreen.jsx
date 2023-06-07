@@ -48,21 +48,29 @@ export default function StartScreen({route}) {
             </TouchableOpacity>
            </View>
         </View>
-        <ScrollView style={{height:130,overflow:"hidden"}} showsVerticalScrollIndicator={false}>
-           {
-            tab===0&& <View style={{display:"flex",flexDirection:"column"}}>
+{
+   tab===0&&
+        <View style={{height:130}}>
+        <ScrollView  showsVerticalScrollIndicator={false}>
+     <View style={{display:"flex",flexDirection:"column"}}>
             {
                 [1,2,3,4].map((item,i)=>(
                     <OwnProduct key={i}/>
                 ))
             }
         </View>
-           }
-           {
-            tab===1&&<Notification/>
-           }
+     
         </ScrollView>
- 
+        </View>
+}
+{
+  tab===1&&
+        <View style={{flex:1}}>
+        <ScrollView  showsVerticalScrollIndicator={false}>
+            <Notification/>
+        </ScrollView>
+        </View>
+}
     </View>
     
     </Screen>
