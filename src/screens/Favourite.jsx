@@ -18,7 +18,7 @@ export default function Favourite({route,data}) {
     <Screen>
       <View style={styles.header}>
       <Pressable onPress={()=>navigation.navigate("homescreen")} style={[styles.center,{paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
-       <AntDesign name="home" size={24} color={colors.black} />
+       {/* <AntDesign name="home" size={24} color={colors.black} /> */}
         </Pressable>
         <Pressable onPress={()=>setlth(!lth)} style={[styles.center,{backgroundColor:lth?colors.black:colors.white,paddingHorizontal:rp(1),paddingVertical:rp(.5),borderRadius:rp(.5)}]}>
        {

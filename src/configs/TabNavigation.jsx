@@ -1,4 +1,4 @@
-import { View, Text,Image } from 'react-native'
+import { View, Text,Image, Pressable } from 'react-native'
 import React from 'react'
 import { BottomTabBarProps, BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from "../screens/Home"
@@ -17,7 +17,7 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 const Tab = createBottomTabNavigator();
-export default function TabNavigation({route}) {
+export default function TabNavigation({route,navigation}) {
   const data=route?.params?.data
   return (
     <Tab.Navigator
@@ -42,14 +42,14 @@ export default function TabNavigation({route}) {
       options={{
         tabBarShowLabel: false,
         tabBarIcon:({color,size,focused})=>
-        (<View style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
+        (<Pressable onPress={()=>navigation.navigate("homescreen")} style={{display:"flex",alignItems:"center",justifyContent:"center",paddingVertical:RFPercentage(.5),marginBottom:5}}>
       {
         // focused?
         // <Image style={{height:35,width:35}} source={require("../../assets/images/activemain.png")}/>
         // :
         <Image style={{height:35,width:35}} source={require("../../assets/images/headercustom.png")}/>
       }
-        </View>
+        </Pressable>
         )
         }}
       
