@@ -11,7 +11,7 @@ import { Image } from 'react-native-elements';
 export default function ItemCard({func=()=>{}}) {
     const[fav,setfav]=React.useState(false)
   return (
-    <View  style={{width:"98%",marginHorizontal:"1%",backgroundColor:"#32353d",marginBottom:rp(1.5),display:"flex",flexDirection:"row",borderRadius:rp(2),
+    <Pressable onPress={func}  style={{width:"98%",marginHorizontal:"1%",backgroundColor:"#32353d",marginBottom:rp(1.5),display:"flex",flexDirection:"row",borderRadius:rp(2),
     shadowColor: "#000000",
 shadowOffset: {
   width: 0,
@@ -21,9 +21,9 @@ shadowOpacity:  0.17,
 shadowRadius: 3.05,
 elevation: 4
     }}>
-        <Pressable onPress={func} style={{height:120,width:"40%",backgroundColor:colors.white,borderTopLeftRadius:rp(2),borderBottomLeftRadius:rp(2)}}>
+        <View style={{height:120,width:"40%",backgroundColor:colors.white,borderTopLeftRadius:rp(2),borderBottomLeftRadius:rp(2)}}>
         <Image style={{height:"100%",width:"100%"}} resizeMode='contain' source={require("../../assets/images/nike.jpg")} PlaceholderContent={<ActivityIndicator/>}/>
-        </Pressable>
+        </View>
      <View style={{width:"60%"}}>
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginHorizontal:rp(1),marginVertical:rp(2)}}>
             <BodyText color={colors.white} text={"Nike Air Jorden"} h='h3'/>
@@ -35,6 +35,6 @@ elevation: 4
         <Heading color={colors.white} text={"Price € 300"} h='h4'/>
         </View>
      </View>
-    </View>
+    </Pressable>
   )
 }
