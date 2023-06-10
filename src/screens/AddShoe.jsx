@@ -29,6 +29,7 @@ export default function AddShoe({route}) {
     const [paypalname, setpaypalname] = React.useState("");
     const [price,setprice]=React.useState("")
     const [country,setcountry]=React.useState("")
+    const [shoename,setshoename]=React.useState("")
 
     const askForPermissions=async(permissions)=>{
         const result=await request(permissions)
@@ -145,6 +146,11 @@ return (
             <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
                 <BodyText text={"CONDITION"} h='h3'/>
                 <TextInput editable={false}  value={data?.cond} style={{width:200,height:32,borderRadius:rp(.3),color:colors.lightblack,fontFamily:fonts.mitalic,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+                 </TextInput>
+            </View>
+        <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
+                <BodyText text={"Title"} h='h3'/>
+                <TextInput onChangeText={(e)=>setshoename(e)} value={shoename} placeholderTextColor={colors.lightblack} placeholder='Title' style={{width:200,height:32,borderRadius:rp(.3),borderWidth:1,borderColor:colors.black,paddingHorizontal:rp(1),paddingVertical:rp(.5),display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                  </TextInput>
             </View>
         <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",marginBottom:rp(2.5)}}>
