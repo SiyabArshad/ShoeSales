@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>831457934255-tem5abttq56l45igg7le1jcbnc5o5ptm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.831457934255-tem5abttq56l45igg7le1jcbnc5o5ptm</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>831457934255-f0bbfrk7bai1698c1l9i3rb02l9m4182.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBS-feeGbxq9JrIYoSOOrN3QvHYDZx9HZo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>831457934255</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.foot.clubfoot</string>
+	<key>PROJECT_ID</key>
+	<string>footclub-667c8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>footclub-667c8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:831457934255:ios:4fe46738a772a38557cd5a</string>
+</dict>
+</plist>
