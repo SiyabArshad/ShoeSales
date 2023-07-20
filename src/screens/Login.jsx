@@ -1,4 +1,4 @@
-import { View, Text,Modal,TouchableOpacity,Pressable,Image,StyleSheet,ImageBackground,Dimensions,Platform,Linking,ActivityIndicator,TextInput,ScrollView,FlatList } from 'react-native'
+import { Alert,View, Text,Modal,TouchableOpacity,Pressable,Image,StyleSheet,ImageBackground,Dimensions,Platform,Linking,ActivityIndicator,TextInput,ScrollView,FlatList } from 'react-native'
 import React from 'react'
 import fonts from "../helpers/fonts"
 import colors from '../helpers/colors'
@@ -10,24 +10,40 @@ import * as Yup from 'yup';
 import CustomButton from '../components/CustomButton';
 import { useRoute,useNavigation } from '@react-navigation/native';
 import logoimage from "../../assets/images/newlogo.png"
-
+import firestore from "@react-native-firebase/firestore"
+import auth from "@react-native-firebase/auth"
+import { useDispatch, useSelector } from 'react-redux';
+import {loginUser} from "../store/auth/authSlice"
+import Loading from '../components/Loading';
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required').min(10),
   password: Yup.string().required('Password is required').min(6),
 });
 export default function Login() {
   const navigation=useNavigation()
-  
+  const dispatch = useDispatch();
     const [isload,setisload]=React.useState(false)
     const [issubmit,setissubmit]=React.useState(false)
     const [Error,setError]=React.useState('')
     const [type,settype]=React.useState(false)
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (values) => {
         setisload(true);
         try {
+          const user=await auth().signInWithEmailAndPassword(values?.email,values?.password)
+          const data=await firestore().collection("users").doc(user?.user?.uid).get()
+        if(data.exists)
+        {
+          dispatch(loginUser(data?.data()))
           setError("Logged in Successfully");
-          settype(true);
+          settype(true)
+        }
+        else
+        {
+
+        setError("Logged in Failed");
+        settype(false);
+        }
         } catch (error) {
           setError("Failed");
           settype(false);
@@ -40,11 +56,11 @@ export default function Login() {
       
     const callbacksubmit=()=>{
         setissubmit(false)
-        navigation.navigate("homescreen")
     }
+
   return (
     <ScrollView style={styles.mnonb} showsVerticalScrollIndicator={false}>
-      
+      <Loading visible={isload}/>
      <MessageCard type={type} message={Error} show={issubmit} callshow={callbacksubmit}/>
      <View style={{display:"flex",flexDirection:"row",marginTop:rp(5),marginHorizontal:rp(2)}}>
         
@@ -84,8 +100,8 @@ export default function Login() {
      {errors.password && <Text style={{color:colors.danger,marginTop:rp(1)}}>{errors.password}</Text>}
      </View>
      <View style={[{marginBottom:rp(5),zIndex:999},styles.centertext]}>
-     <CustomButton func={handleSubmit}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"LOGIN"}/>
-     <CustomButton func={()=>navigation.navigate("homescreen")}  style={{marginTop:rp(1),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold,fontSize:rp(2.2)}} text={"Continue with Paypal"}>
+     <CustomButton func={()=>handleSubmit(values)}  style={{backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold}} text={"LOGIN"}/>
+     <CustomButton func={()=>Alert.alert("Unavailable","This feature will be soon available!")}  style={{marginTop:rp(1),backgroundColor:colors.black,borderRadius:rp(5)}} textstyle={{color:colors.white,textTransform:"capitalize",fontFamily:fonts.msemibold,fontSize:rp(2.2)}} text={"Continue with Paypal"}>
       <Image style={{height:25,width:25,marginRight:rp(2)}} source={require("../../assets/images/paypal.png")}/>
       </CustomButton>
      

@@ -1,49 +1,42 @@
 {
   "project_info": {
-    "project_number": "831457934255",
-    "project_id": "footclub-667c8",
-    "storage_bucket": "footclub-667c8.appspot.com"
+    "project_number": "93938270889",
+    "project_id": "footclub-699af",
+    "storage_bucket": "footclub-699af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:831457934255:android:192df0ecc9edc2f357cd5a",
+        "mobilesdk_app_id": "1:93938270889:android:e5b4e75ee0d1f3221a9fb8",
         "android_client_info": {
           "package_name": "com.foot.clubfoot"
         }
       },
       "oauth_client": [
         {
-          "client_id": "831457934255-f0bbfrk7bai1698c1l9i3rb02l9m4182.apps.googleusercontent.com",
+          "client_id": "93938270889-1liefd58n2oor8p2d9uutvtl8d6jbdja.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.foot.clubfoot",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+            "certificate_hash": "c1cbac0f51a52fdb1ce17493c45f97c9c4a3d2ae"
           }
         },
         {
-          "client_id": "831457934255-oflpdaqq1q2plth7k5ndi0m6ml5i3hqp.apps.googleusercontent.com",
+          "client_id": "93938270889-6vu7180s48g0opbnkqqf032abp0q8u64.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCdbQIFOJc1tNpJ-W1oFEvT9KVHtFdPw8w"
+          "current_key": "AIzaSyBvzNlTPoQYkuquNB0JITEzp4uipYzt6Rg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "831457934255-oflpdaqq1q2plth7k5ndi0m6ml5i3hqp.apps.googleusercontent.com",
+              "client_id": "93938270889-6vu7180s48g0opbnkqqf032abp0q8u64.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "831457934255-tem5abttq56l45igg7le1jcbnc5o5ptm.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.foot.clubfoot"
-              }
             }
           ]
         }
